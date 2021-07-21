@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import serializers, status
 
-# Create your views here.
+from .models import Location
+from .serializer import LocationSerializer
+
+class LocationListView(APIView):
+    
+    def get(self, _request):
+        location = Location.objects.all()
+        serializers_locations = LocationSerializer(location, many=True)
+        return Response(serializers_locations.data, status=status.HTTP_200_OK)
+    
