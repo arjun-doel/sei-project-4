@@ -23,8 +23,6 @@ class RegisterView(APIView):
 class LoginView(APIView):
 
     def post(self, request):
-        user_blank = User.objects.get(email='')
-        user_blank.delete()
         
         email = request.data.get('email')
         password = request.data.get('password')
