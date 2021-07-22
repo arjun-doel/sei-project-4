@@ -5,22 +5,23 @@ from rest_framework.exceptions import NotFound
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 
-from .serializers.common import CommentSerializer
+
+from .serializers.common import CommentSerializers
 from .models import Comment 
 
 class CommentListView(APIView):
-    permissions_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     
     def post(self, request):
-        request.data["owner"] = request.user.id
-        comment_to_create = CommentSerializer(data=request.data)
+        request.data["owner"] = request.user.id 
+        comment_to_create = CommentSerializers(data=request.data) 
         if comment_to_create.is_valid():
             comment_to_create.save()
             return Response(comment_to_create.data, status=status.HTTP_201_CREATED)
         return Response(comment_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-    
+
 class CommentDetailView(APIView):
-    
+
     def delete(self, request, pk):
         try:
             comment_to_delete = Comment.objects.get(pk=pk)

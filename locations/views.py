@@ -27,6 +27,7 @@ class LocationListView(APIView):
         try:
             geolocator = Nominatim(user_agent="useLocal")
             location = geolocator.geocode(address_replace)
+            print(location)
             location_to_before["latitude"] = location.latitude
             location_to_before["longitude"] = location.longitude
         except:

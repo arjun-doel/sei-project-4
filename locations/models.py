@@ -1,3 +1,4 @@
+from math import degrees
 from django.db import models
 
 class Location(models.Model):
@@ -11,9 +12,14 @@ class Location(models.Model):
     state = models.CharField(max_length=100, default=None, blank=True)
     postal_code = models.CharField(max_length=100, default=None)
     country = models.CharField(max_length=100)
-    latitude = models.DecimalField(max_digits=18, decimal_places=10, default=0, blank=True)
-    longitude = models.DecimalField(max_digits=18, decimal_places=10, default=0, blank=True)
+    latitude = models.DecimalField(max_digits=25, decimal_places=10, default=0, blank=True)
+    longitude = models.DecimalField(max_digits=25, decimal_places=10, default=0, blank=True)
     post_at = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(
+        "jwt_auth.User",
+        related_name="locations",
+        on_delete = models.CASCADE,
+    )
     
     def __str__(self):
         return f"{self.name} - {self.city}"

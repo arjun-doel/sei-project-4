@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
 
 class Comment(models.Model):
     text = models.TextField(max_length=300)

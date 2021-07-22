@@ -1,5 +1,5 @@
 from jwt_auth.serializer import UserSerializer
-from .common import CommentSerialziers
+from .common import CommentSerializers
 
-class PopulatedCommentSerializer(CommentSerialziers):
+class PopulatedCommentSerializer(CommentSerializers):
     owner = UserSerializer()
