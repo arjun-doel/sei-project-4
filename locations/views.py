@@ -5,14 +5,15 @@ from rest_framework.exceptions import NotFound
 from geopy.geocoders import Nominatim
 
 from .models import Location
-from .serializer import LocationSerializer
+from .serializers.common import LocationSerializer
+from .serializers.populated import PopulatedLocationSerializer
 
 
 class LocationListView(APIView):
 
     def get(self, _request):
         location = Location.objects.all()
-        serializers_locations = LocationSerializer(location, many=True)
+        serializers_locations = PopulatedLocationSerializer(location, many=True)
         return Response(serializers_locations.data, status=status.HTTP_200_OK)
     
     def post(self, request):
