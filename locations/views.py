@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from geopy.geocoders import Nominatim
 
 from .models import Location
@@ -10,6 +11,7 @@ from .serializers.populated import PopulatedLocationSerializer
 
 
 class LocationListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, _request):
         location = Location.objects.all()
@@ -17,6 +19,7 @@ class LocationListView(APIView):
         return Response(serializers_locations.data, status=status.HTTP_200_OK)
     
     def post(self, request):
+        request.data['owner'] = request.user.id
         location_to_before = request.data
         address_compiled = location_to_before["address"] + " " + location_to_before["postal_code"]
         address_replace = address_compiled.replace(",", "")
