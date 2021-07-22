@@ -1,8 +1,8 @@
-import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
+from geopy.geocoders import Nominatim
 
 from .models import Location
 from .serializer import LocationSerializer
@@ -19,8 +19,13 @@ class LocationListView(APIView):
         # Grab data here
         location_to_before = request.data
         address_compiled = location_to_before["address"] + " " + location_to_before["city"] + " " + location_to_before["postal_code"]
-        print('address => ', address_compiled.replace(",", ""))
-        location_to_before["latitude"] = 1.55555
+        address_replace = address_compiled.replace(",", "")
+        
+        geolocator = Nominatim(user_agent="useLocal")
+        location = geolocator.geocode(address_replace)
+        
+        location_to_before["latitude"] = location.latitude
+        location_to_before["longitude"] = location.longitude
         print(location_to_before)
         location_to_after = LocationSerializer(data=location_to_before)
         if location_to_after.is_valid():
