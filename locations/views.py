@@ -16,17 +16,18 @@ class LocationListView(APIView):
         return Response(serializers_locations.data, status=status.HTTP_200_OK)
     
     def post(self, request):
-        # Grab data here
         location_to_before = request.data
-        address_compiled = location_to_before["address"] + " " + location_to_before["city"] + " " + location_to_before["postal_code"]
+        address_compiled = location_to_before["address"] + " " + location_to_before["postal_code"]
         address_replace = address_compiled.replace(",", "")
         
-        geolocator = Nominatim(user_agent="useLocal")
-        location = geolocator.geocode(address_replace)
+        try:
+            geolocator = Nominatim(user_agent="useLocal")
+            location = geolocator.geocode(address_replace)
+            location_to_before["latitude"] = location.latitude
+            location_to_before["longitude"] = location.longitude
+        except:
+            raise NotFound(detail="oops...cannot find location coordinates 🤷🏽‍♂️")
         
-        location_to_before["latitude"] = location.latitude
-        location_to_before["longitude"] = location.longitude
-        print(location_to_before)
         location_to_after = LocationSerializer(data=location_to_before)
         if location_to_after.is_valid():
             location_to_after.save()
