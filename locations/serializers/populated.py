@@ -1,5 +1,5 @@
-from comments.serializers.common import CommentSerialziers
+from comments.serializers.populated import PopulatedCommentSerializer
 from .common import LocationSerializer
 
 class PopulatedLocationSerializer(LocationSerializer):
-    comments = CommentSerialziers(many=True)
+    comments = PopulatedCommentSerializer(many=True)
