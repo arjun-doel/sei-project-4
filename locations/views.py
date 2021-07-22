@@ -18,7 +18,10 @@ class LocationListView(APIView):
     def post(self, request):
         # Grab data here
         location_to_before = request.data
-        # Add geocode here
+        address_compiled = location_to_before["address"] + " " + location_to_before["city"] + " " + location_to_before["postal_code"]
+        print('address => ', address_compiled.replace(",", ""))
+        location_to_before["latitude"] = 1.55555
+        print(location_to_before)
         location_to_after = LocationSerializer(data=location_to_before)
         if location_to_after.is_valid():
             location_to_after.save()
