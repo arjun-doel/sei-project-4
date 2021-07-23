@@ -1,16 +1,16 @@
 from django.db import models
 
 class Comment(models.Model):
-    RATING_CHOICES = (
-        (1),
-        (2),
-        (3),
-        (4),
-        (5),
-    )
+    Rating_CHOICES = (
+    (1, 'Poor'),
+    (2, 'Average'),
+    (3, 'Good'),
+    (4, 'Very Good'),
+    (5, 'Excellent')
+)
     
     text = models.TextField(max_length=300)
-    rating = models.IntegerChoices(choices=RATING_CHOICES, default=1)
+    rating = models.IntegerField(choices=Rating_CHOICES, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey(
         "locations.Location",
