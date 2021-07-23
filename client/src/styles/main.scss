@@ -1,4 +1,8 @@
-//Use Local Homepage - Header
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+$posh-writing: 'Pacifico', cursive;
+
+//* Homepage
 .home {
   display: flex;
   flex-direction: column;
@@ -9,22 +13,36 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color: white;
+    font-weight: bold;
+    font-size: 4em;
+    font-family: $posh-writing;
   }
   .slogan{
     margin-top: 70px;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
   }
   .hero-two{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 0 30px 0 30px;
+    padding: 20px;
     .people-img{
       img {
         width: 600px;
         border-radius: 10px;
       }
     }
+    .hero-two-txt{
+      margin-left: 100px;
+      flex-wrap: wrap;
+    }
   }
+}
+
+//* Homepage navbar
+.home-nav{
+  background-color: #26465379 !important;
+  backdrop-filter: blur(5px);
 }

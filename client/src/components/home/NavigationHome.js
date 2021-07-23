@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 const NavigationHome = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" variant="dark" className="home-nav">
         <Container>
           <Navbar.Brand href="#home"><i className="fas fa-map-marked"></i></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
