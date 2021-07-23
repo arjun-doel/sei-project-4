@@ -21,7 +21,7 @@ class LocationListView(APIView):
     def post(self, request):
         request.data['owner'] = request.user.id
         location_to_before = request.data
-        address_compiled = location_to_before["address"] + " " + location_to_before["postal_code"]
+        address_compiled = location_to_before["address"] + " " + location_to_before["postal_code"] + " " + location_to_before["country"]
         address_replace = address_compiled.replace(",", "")
         
         try:
