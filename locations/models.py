@@ -9,7 +9,6 @@ class Location(models.Model):
         (4, 'Very Expensive')
     )
     
-    
     name = models.CharField(max_length=50, default=None)
     image1 = models.CharField(max_length=500, blank=True)
     image2 = models.CharField(max_length=500, blank=True)
