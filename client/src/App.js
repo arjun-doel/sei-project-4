@@ -1,16 +1,11 @@
 import React from 'react'
 
-function App() {
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await fetch('/api/endpoint') // * <-- replace with your endpoint
-      const data = await res.json()
-      console.log(data)
-    }
-    getData()
-  })
-
-  return <h1>Hello World</h1>
+const App = () => {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  )
 }
 
 export default App
