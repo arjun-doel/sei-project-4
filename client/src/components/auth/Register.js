@@ -44,30 +44,42 @@ const Register = () => {
 
       <Container fluid="md" className="center-height animate__slideOutDown">
         <Row className="justify-content-md-center">
-          <Col xs={12} md={8}>
+          <Col xs={7}>
             <Form onSubmit={submitForm} className='register-form'>
 
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridEmail">
+                  <Form.Label>first name</Form.Label>
+                  <Form.Control type="email" placeholder="enter first name" />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridPassword">
+                  <Form.Label>last name</Form.Label>
+                  <Form.Control type="text" placeholder="enter last name" />
+                </Form.Group>
+              </Row>
+
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control name="username" type="text" placeholder="Enter username" value={formData.username} onChange={handleUserData} />
+                <Form.Label>username</Form.Label>
+                <Form.Control name="username" type="text" placeholder="enter username" value={formData.username} onChange={handleUserData} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control name="email" type="email" placeholder="Enter email" value={formData.email} onChange={handleUserData} />
+                <Form.Label>email</Form.Label>
+                <Form.Control name="email" type="email" placeholder="enter email" value={formData.email} onChange={handleUserData} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name="password" type="password" placeholder="Password" value={formData.password} onChange={handleUserData} />
+                <Form.Label>password</Form.Label>
+                <Form.Control name="password" type="password" placeholder="enter password" value={formData.password} onChange={handleUserData} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Please confirm your password</Form.Label>
-                <Form.Control name="passwordConfirmation" type="password" placeholder="Password Confirmation" value={formData.passwordConfirmation} onChange={handleUserData} />
+                <Form.Label>please confirm your password</Form.Label>
+                <Form.Control name="passwordConfirmation" type="password" placeholder="confirm password" value={formData.passwordConfirmation} onChange={handleUserData} />
               </Form.Group>
 
-              <button type="submit">Submit</button>
+              <button type="submit">submit</button>
             </Form>
           </Col>
         </Row>
