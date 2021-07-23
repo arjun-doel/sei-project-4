@@ -1,10 +1,18 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './components/home/Home'
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      
+      <Switch>
+
+        <Route component={Home} path={'/'} />
+
+      </Switch>
+
+    </BrowserRouter>
   )
 }
 
