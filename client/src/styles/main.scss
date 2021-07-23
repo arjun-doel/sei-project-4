@@ -80,4 +80,17 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     text-decoration: rgb(12, 8, 224);
   }
+  .upload-profile{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    input {
+      padding: 10px;
+      border: 1px solid rgb(193, 193, 193);
+      border-radius: 5px;
+      button {
+        background-color: red;
+      }
+    }
+  }
 }

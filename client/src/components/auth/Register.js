@@ -61,7 +61,7 @@ const Register = () => {
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>username</Form.Label>
-                <Form.Control name="username" type="text" placeholder="enter username" value={formData.username} onChange={handleUserData} />
+                <Form.Control name="username" type="text" placeholder="@username" value={formData.username} onChange={handleUserData} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -78,6 +78,11 @@ const Register = () => {
                 <Form.Label>please confirm your password</Form.Label>
                 <Form.Control name="passwordConfirmation" type="password" placeholder="confirm password" value={formData.passwordConfirmation} onChange={handleUserData} />
               </Form.Group>
+
+              <div className="upload-profile">
+                <Form.Label>upload a profile photo</Form.Label>
+                <input type="file" id="myFile" name="filename" placeholder="choose profile photo"/>
+              </div>
 
               <button type="submit">submit</button>
             </Form>
