@@ -2,11 +2,20 @@ from math import degrees
 from django.db import models
 
 class Location(models.Model):
+    price_tier = (
+        (1, 'Inexpensive'),
+        (2, 'Moderately Expensive'),
+        (3, 'Expensive'),
+        (4, 'Very Expensive')
+    )
+    
+    
     name = models.CharField(max_length=50, default=None)
     image1 = models.CharField(max_length=500, blank=True)
     image2 = models.CharField(max_length=500, blank=True)
     image3 = models.CharField(max_length=500, blank=True)
     description = models.TextField(max_length=200, default=None)
+    price_rage = models.IntegerField(choices=price_tier, default=2)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100, default=None, blank=True)
