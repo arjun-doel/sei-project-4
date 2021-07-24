@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import AppNavigation from './AppNavigation'
+import { usePosition } from '../hooks/usePosition'
 
 const MapIndex = () => {
   const [locations, setLocations] = useState([])
+  const { latitude, longitude, error } = usePosition()
   const token = 'pk.eyJ1IjoiYXJqdW5kb2VsIiwiYSI6ImNrcWh2dmdqNzJoenQyb3F0dW0yZWxrbnYifQ.UK1B_huaJtR_5VRPt8F_sw'
 
   const [viewport, setNewViewport] = useState({
@@ -27,6 +29,13 @@ const MapIndex = () => {
     getData()
   }, [])
 
+  const showPosition = () => {
+    console.log('latitude', latitude)
+    console.log('long', longitude)
+    console.log(error)
+    setNewViewport({ ...viewport, latitude: latitude, longitude: longitude })
+  }
+
   return (
     <>
       <ReactMapGL
@@ -43,7 +52,9 @@ const MapIndex = () => {
           </Marker>
         })}
       </ReactMapGL>
-      <AppNavigation />
+      <AppNavigation 
+        showPosition={showPosition}
+      />
     </>
   )
 }

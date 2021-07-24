@@ -5,35 +5,18 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import { usePosition } from '../hooks/usePosition'
 
-const AppNavigation = () => {
+const AppNavigation = ({ showPosition }) => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
-  const { latitude, longitude, error } = usePosition()
-
-  console.log(latitude + longitude + error) 
 
   const handleChangeAddModal = () => {
     console.log('add location')
     setShow(true)
   }
 
-  const getCurrentUserLocation = () => {
-    if (navigator.geolocation) {
-      console.log(navigator.geolocation.getCurrentPosition(showPosition))
-    } else {
-      console.log('location not found')
-    }
-  }
-
-  const showPosition = () => {
-    // console.log(position.coords.latitude + position.coords.longitude)
-  }
-
   return (
     <>
-
       <Modal
         show={show}
         onHide={handleClose}
@@ -57,7 +40,7 @@ const AppNavigation = () => {
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
-          <Nav.Link onClick={getCurrentUserLocation} className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
+          <Nav.Link onClick={showPosition} className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
 
           <Nav.Link className="right-icons"><i className="fas fa-filter"></i></Nav.Link>
 
