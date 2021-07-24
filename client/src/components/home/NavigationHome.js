@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 const NavigationHome = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="home-nav">
+      <Navbar collapseOnSelect expand="lg" className="home-nav">
         <Container>
 
           <LinkContainer to="/">
