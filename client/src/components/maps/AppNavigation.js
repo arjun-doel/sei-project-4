@@ -1,26 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const AppNavigation = () => {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+
+
+  const handleChangeAddModal = () => {
+    console.log('add location')
+    setShow(true)
+  }
+
   return (
     <>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        keyboard={false}
+      >
+        <Modal.Header>
+          <Modal.Title>add a new location</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          I will not close if you click outside me. Dont even try to press
+          escape key.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">add</Button>
+        </Modal.Footer>
+      </Modal>
+
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
-          <LinkContainer to="" className="right-icons">
-            <Nav.Link><i className="fas fa-location-arrow"></i></Nav.Link>
-          </LinkContainer>
-          
-          <LinkContainer to="" className="right-icons">
-            <Nav.Link><i className="fas fa-filter"></i></Nav.Link>
-          </LinkContainer>
-          
-          <LinkContainer to="" className="right-icons">
-            <Nav.Link><i className="fas fa-plus"></i></Nav.Link>
-          </LinkContainer>
+          <Nav.Link className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
+
+          <Nav.Link className="right-icons"><i className="fas fa-filter"></i></Nav.Link>
+
+          <Nav.Link className="right-icons" onClick={handleChangeAddModal}><i className="fas fa-plus"></i></Nav.Link>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
