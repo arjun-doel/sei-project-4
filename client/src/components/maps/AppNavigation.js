@@ -10,8 +10,12 @@ const AppNavigation = () => {
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
-          <LinkContainer to="">
-            <Nav.Link>filter</Nav.Link>
+          <LinkContainer to="" className="right-icons">
+            <Nav.Link><i className="fas fa-location-arrow"></i></Nav.Link>
+          </LinkContainer>
+          
+          <LinkContainer to="" className="right-icons">
+            <Nav.Link><i className="fas fa-filter"></i></Nav.Link>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,16 +23,20 @@ const AppNavigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
 
             <Nav className="me-auto">
-              <LinkContainer to="">
+              <LinkContainer to="" className="left-icons">
                 <Nav.Link>feed</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="">
+              <LinkContainer to="" className="left-icons">
                 <Nav.Link href="#pricing">favourites</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="">
-                <Nav.Link href="#pricing">favourites</Nav.Link>
+              <LinkContainer to="" className="left-icons">
+                <Nav.Link href="#pricing">profile</Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="" className="left-icons">
+                <Nav.Link href="#pricing">logout</Nav.Link>
               </LinkContainer>
             </Nav>
 
