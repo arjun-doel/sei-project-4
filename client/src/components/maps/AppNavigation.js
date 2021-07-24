@@ -16,6 +16,18 @@ const AppNavigation = () => {
     setShow(true)
   }
 
+  const getCurrentUserLocation = () => {
+    if (navigator.geolocation) {
+      console.log(navigator.geolocation.getCurrentPosition(showPosition))
+    } else {
+      console.log('location not found')
+    }
+  }
+
+  const showPosition = (position) => {
+    console.log(position.coords.latitude + position.coords.longitude)
+  }
+
   return (
     <>
 
@@ -42,7 +54,7 @@ const AppNavigation = () => {
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
-          <Nav.Link className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
+          <Nav.Link onClick={getCurrentUserLocation} className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
 
           <Nav.Link className="right-icons"><i className="fas fa-filter"></i></Nav.Link>
 
