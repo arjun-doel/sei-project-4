@@ -52,7 +52,7 @@ const MapIndex = () => {
           </Marker>
         })}
       </ReactMapGL>
-      <AppNavigation 
+      <AppNavigation
         showPosition={showPosition}
       />
     </>

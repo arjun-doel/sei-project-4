@@ -3,10 +3,10 @@ import { LinkContainer } from 'react-router-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+import AddLocationsModal from './AddLocationsModal'
 
 const AppNavigation = ({ showPosition }) => {
+  //*Modal State
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
 
@@ -17,25 +17,11 @@ const AppNavigation = ({ showPosition }) => {
 
   return (
     <>
-      <Modal
+      <AddLocationsModal 
         show={show}
         onHide={handleClose}
-        keyboard={false}
-      >
-        <Modal.Header>
-          <Modal.Title>add a new location</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Dont even try to press
-          escape key.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">add</Button>
-        </Modal.Footer>
-      </Modal>
+        handleClose={handleClose}
+      />
 
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
