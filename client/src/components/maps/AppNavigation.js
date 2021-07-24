@@ -5,11 +5,14 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import { usePosition } from '../hooks/usePosition'
 
 const AppNavigation = () => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
+  const { latitude, longitude, error } = usePosition()
 
+  console.log(latitude + longitude + error) 
 
   const handleChangeAddModal = () => {
     console.log('add location')
@@ -24,8 +27,8 @@ const AppNavigation = () => {
     }
   }
 
-  const showPosition = (position) => {
-    console.log(position.coords.latitude + position.coords.longitude)
+  const showPosition = () => {
+    // console.log(position.coords.latitude + position.coords.longitude)
   }
 
   return (
