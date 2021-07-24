@@ -17,26 +17,30 @@ const AppNavigation = () => {
           <LinkContainer to="" className="right-icons">
             <Nav.Link><i className="fas fa-filter"></i></Nav.Link>
           </LinkContainer>
+          
+          <LinkContainer to="" className="right-icons">
+            <Nav.Link><i className="fas fa-plus"></i></Nav.Link>
+          </LinkContainer>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
 
             <Nav className="me-auto">
-              <LinkContainer to="" className="left-icons">
+              <LinkContainer to="/feed" className="left-icons">
                 <Nav.Link>feed</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="" className="left-icons">
-                <Nav.Link href="#pricing">favourites</Nav.Link>
+              <LinkContainer to="/favourites" className="left-icons">
+                <Nav.Link>favourites</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="" className="left-icons">
-                <Nav.Link href="#pricing">profile</Nav.Link>
+              <LinkContainer to="/profile" className="left-icons">
+                <Nav.Link>profile</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="" className="left-icons">
-                <Nav.Link href="#pricing">logout</Nav.Link>
+              <LinkContainer to="/" className="left-icons">
+                <Nav.Link>logout</Nav.Link>
               </LinkContainer>
             </Nav>
 
