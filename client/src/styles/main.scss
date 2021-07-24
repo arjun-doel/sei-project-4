@@ -98,7 +98,21 @@ body {
 }
 
 //*Maps-Index
-.map-container {
-  min-height: calc(100vh - 52px);
+.app-nav {
+  position: absolute;
+  top: 0;
   width: 100%;
+}
+
+
+//? Icon Markers
+.mark-icon{
+  i {
+    color: red;
+    font-size: 2rem;
+    transition: 0.4s ease-in-out;
+  }
+  i:hover {
+    transform: scale(1.5);
+  }
 }
