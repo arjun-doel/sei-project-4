@@ -36,6 +36,10 @@ const MapIndex = () => {
     setNewViewport({ ...viewport, latitude: latitude, longitude: longitude })
   }
 
+  const handleModalChange = e => {
+    console.log('Modal, extra info', e.target.id)
+  }
+
   return (
     <>
       <ReactMapGL
@@ -48,7 +52,7 @@ const MapIndex = () => {
       >
         {locations.map(ite => {
           return <Marker key={ite.id} longitude={parseFloat(ite.longitude)} latitude={parseFloat(ite.latitude)}>
-            <span id={ite.id} className="mark-icon"><i className="fas fa-map-pin"></i></span>
+            <span className="mark-icon"><i id={ite.id} onClick={handleModalChange} className="fas fa-map-pin"></i></span>
           </Marker>
         })}
       </ReactMapGL>
