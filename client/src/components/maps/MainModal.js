@@ -45,7 +45,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
             <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span>
           </div>
           <hr />
-          <h5 aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>
+          <h5 className="modal-address" aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>
             address 
             {!open ? <i className="fas fa-chevron-circle-down"></i> : 
               <i className="fas fa-chevron-circle-up"></i> }

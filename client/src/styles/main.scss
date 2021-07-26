@@ -182,6 +182,14 @@ body {
       color: rgb(157, 157, 157);
     }
   }
+  .modal-address{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    i {
+      margin-right: 20px;
+    }
+  }
   .modal-description{
     p {
       font-size: 0.9rem;
