@@ -92,6 +92,12 @@ const MapIndex = () => {
             <hr />
             <div className="comments">
               <h5>comments</h5>
+              {ite.comments.map(ite =>
+                <div key={ite.id} className="comment">
+                  <img src={ite.owner.profile_image} alt="profile-photo" />
+                  <p>{ite.text}</p>
+                </div>
+              )}
             </div>
           </Modal.Body>
         </Modal>
