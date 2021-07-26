@@ -6,12 +6,17 @@ import Collapse from 'react-bootstrap/Collapse'
 
 const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
+  const [saved, setSaved] = useState(false)
 
   const averageRating = () => {
     const average = comments.reduce((acc, currentValue) => {
       return acc + parseInt(currentValue.rating) / 5
     }, 0)
     return Math.ceil(average)
+  }
+
+  const addToFavourites = () => {
+    setSaved(!saved)
   }
 
   return (
@@ -28,7 +33,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           <Modal.Title id="example-modal-sizes-title-lg">
             <div className="modal-info-header">
               {name}
-              <i className="far fa-heart"></i>
+              {!saved ? <i onClick={addToFavourites} className="far fa-heart"></i> : <i onClick={addToFavourites} className="fas fa-heart"></i>}
             </div>
             <Rating
               emptySymbol="far fa-star"
