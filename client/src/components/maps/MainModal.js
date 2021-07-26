@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Rating from 'react-rating'
+import Collapse from 'react-bootstrap/Collapse'
 
 const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, lgShow, setLgShow }) => {
+  const [open, setOpen] = useState(false)
 
   const averageRating = () => {
     const average = comments.reduce((acc, currentValue) => {
@@ -42,6 +44,19 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
             <span className="loc-type">food - dinner</span>
             <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span>
           </div>
+          <hr />
+          <h5 aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>
+            address 
+            {!open ? <i className="fas fa-chevron-circle-down"></i> : 
+              <i className="fas fa-chevron-circle-up"></i> }
+          </h5>
+          <Collapse in={open}>
+            <div id="example-collapse-text">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+              terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+              labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+          </Collapse>
           <hr />
           <div className="modal-description">
             <p>{description}</p>
