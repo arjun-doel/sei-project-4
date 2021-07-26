@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Rating from 'react-rating'
 import Collapse from 'react-bootstrap/Collapse'
 
-const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, lgShow, setLgShow }) => {
+const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
   const [saved, setSaved] = useState(false)
 
@@ -56,10 +56,11 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
               <i className="fas fa-chevron-circle-up"></i> }
           </h5>
           <Collapse in={open}>
-            <div id="example-collapse-text">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-              terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-              labore wes anderson cred nesciunt sapiente ea proident.
+            <div className="main-address-modal">
+              <p>{address}</p>
+              <p>{city}</p>
+              <p>{postCode}</p>
+              <p>{country}</p>
             </div>
           </Collapse>
           <hr />

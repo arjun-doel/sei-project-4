@@ -64,6 +64,10 @@ const MapIndex = () => {
           image2={ite.image2}
           image3={ite.image3}
           description={ite.description}
+          address={ite.address}
+          city={ite.city}
+          country={ite.country}
+          postCode={ite.postal_code}
           owner={ite.owner}
           comments={ite.comments}
           lgShow={lgShow}
