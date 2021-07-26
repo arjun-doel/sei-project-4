@@ -4,7 +4,7 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 import AppNavigation from './AppNavigation'
 import { usePosition } from '../hooks/usePosition'
 import Modal from 'react-bootstrap/Modal'
-// import { useSpring, animated } from 'react-spring'
+// import Carousel from 'react-bootstrap/Carousel'
 
 const MapIndex = () => {
   //* Location State
@@ -45,8 +45,8 @@ const MapIndex = () => {
 
   const handleModalChange = e => {
     const userInput = parseInt(e.target.id)
-    console.log('userInput',userInput)
-    console.log('locations',locations[0])
+    console.log('userInput', userInput)
+    console.log('locations', locations[0])
     const filteredArray = locations.filter(ite => ite.id === userInput)
     setModalInfo(filteredArray)
     setLgShow(true)
@@ -56,20 +56,46 @@ const MapIndex = () => {
 
   return (
     <>
-      <Modal
-        size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg"
-        className="info-modal"
-      >
-        <Modal.Header>
-          <Modal.Title id="example-modal-sizes-title-lg">
-            Large Modal
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>...</Modal.Body>
-      </Modal>
+      {modalInfo.map(ite =>
+        <Modal
+          key={ite.id}
+          size="md"
+          show={lgShow}
+          onHide={() => setLgShow(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+          className="info-modal"
+        >
+          <Modal.Header>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              <div className="modal-info-header">
+                {ite.name}
+                <i className="far fa-heart"></i>
+              </div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="short-info">
+              <span className="loc-type">food - dinner</span>
+              <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span>
+            </div>
+            <hr />
+            <div className="modal-description">
+              <p>{ite.description}</p>
+              <span><strong>posted by</strong> {ite.owner.username}</span>
+            </div>
+            <hr />
+            <div className="modal-gallery">
+              <img src={ite.image1} alt="" />
+              <img src={ite.image2} alt="" />
+              <img src={ite.image3} alt="" />
+            </div>
+            <hr />
+            <div className="comments">
+              <h5>comments</h5>
+            </div>
+          </Modal.Body>
+        </Modal>
+      )}
 
       <ReactMapGL
         {...viewport}

@@ -152,8 +152,40 @@ body {
 }
 
 .info-modal {
-  left: 15%;
+  left: 25%;
   animation: slide-in 0.7s ease-in !important;
+  .modal-info-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      margin-left: 290px;
+    }
+  }
+  .short-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    line-height: 2.4rem;
+    .loc-type{
+      font-weight: bold;
+    }
+    .opening-times{
+      font-size: 1.5rem;
+      color: rgb(157, 157, 157);
+    }
+  }
+  .modal-gallery{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    img {
+      border-radius: 10px;
+      width: 100%;
+      margin: 10px;
+      overflow-x: scroll;
+    }
+  }
 }
 
 @keyframes slidein {
