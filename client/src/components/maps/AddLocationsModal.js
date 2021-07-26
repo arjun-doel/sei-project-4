@@ -17,54 +17,52 @@ const AddLocationsModal = ({ show, handleClose }) => {
           <Modal.Title>add a new location</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+          <Form className="add-mdl-form">
+            <Row>
+              <Form.Group as={Col} controlId="formGridEmail" className="add-frm-grp">
+                <Form.Label>name</Form.Label>
+                <Form.Control type="text" placeholder="enter name of location" />
               </Form.Group>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formGridAddress1">
+            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
+              <Form.Label>Default file input example</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
+              <Form.Label>Default file input example</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
+              <Form.Label>Default file input example</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+
+            <Row>
+              <Form.Group as={Col} controlId="formGridPassword" className="add-frm-grp">
+                <Form.Label>description</Form.Label>
+                <Form.Control as="textarea" placeholder="enter description" />
+              </Form.Group>
+            </Row>
+
+            <Form.Group className="mb-3 add-frm-grp" controlId="formGridAddress1">
               <Form.Label>Address</Form.Label>
               <Form.Control placeholder="1234 Main St" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGridAddress2">
-              <Form.Label>Address 2</Form.Label>
-              <Form.Control placeholder="Apartment, studio, or floor" />
-            </Form.Group>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>City</Form.Label>
-                <Form.Control />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>State</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>...</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Zip</Form.Label>
-                <Form.Control />
-              </Form.Group>
+            <Row className="add-frm-grp">
+              <Col xs={7}>
+                <Form.Control placeholder="City" />
+              </Col>
+              <Col>
+                <Form.Control placeholder="State" />
+              </Col>
+              <Col>
+                <Form.Control placeholder="Zip" />
+              </Col>
             </Row>
 
-            <Form.Group className="mb-3" id="formGridCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="submit-add-form">
               Submit
             </Button>
           </Form>
