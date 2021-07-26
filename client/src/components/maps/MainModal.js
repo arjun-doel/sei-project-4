@@ -3,7 +3,15 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Rating from 'react-rating'
 
-const MainModal = ( { id, name, image1, image2, image3, description, owner, comments, lgShow, setLgShow } ) => {
+const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, lgShow, setLgShow }) => {
+
+  const averageRating = () => {
+    const average = comments.reduce((acc, currentValue) => {
+      return acc + parseInt(currentValue.rating) / 5
+    }, 0)
+    return Math.ceil(average)
+  }
+
   return (
     <>
       <Modal
@@ -20,6 +28,13 @@ const MainModal = ( { id, name, image1, image2, image3, description, owner, comm
               {name}
               <i className="far fa-heart"></i>
             </div>
+            <Rating
+              emptySymbol="far fa-star"
+              fullSymbol="fas fa-star"
+              readonly
+              className="rating-header"
+              initialRating={averageRating()}
+            />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

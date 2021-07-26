@@ -155,12 +155,19 @@ body {
   left: 25%;
   animation: slide-in 0.7s ease-in !important;
   .modal-info-header{
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+    line-height: 1rem;
+    font-size: 1.5rem;
     i {
       margin-left: 290px;
     }
+  }
+  .rating-header{
+    font-size: 0.9rem;
   }
   .short-info {
     display: flex;
