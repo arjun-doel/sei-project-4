@@ -150,3 +150,17 @@ body {
     margin-top: 50px;
   }
 }
+
+.info-modal {
+  left: 15%;
+  animation: slide-in 0.7s ease-in !important;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

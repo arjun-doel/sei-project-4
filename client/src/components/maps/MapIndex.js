@@ -3,11 +3,18 @@ import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import AppNavigation from './AppNavigation'
 import { usePosition } from '../hooks/usePosition'
+import Modal from 'react-bootstrap/Modal'
+// import { useSpring, animated } from 'react-spring'
 
 const MapIndex = () => {
+  //* Location State
   const [locations, setLocations] = useState([])
   const { latitude, longitude, error } = usePosition()
   const token = 'pk.eyJ1IjoiYXJqdW5kb2VsIiwiYSI6ImNrcWh2dmdqNzJoenQyb3F0dW0yZWxrbnYifQ.UK1B_huaJtR_5VRPt8F_sw'
+
+  //*Info Modal State
+  const [lgShow, setLgShow] = useState(false)
+  const [modalInfo, setModalInfo] = useState([])
 
   const [viewport, setNewViewport] = useState({
     latitude: 51.462510,
@@ -37,11 +44,33 @@ const MapIndex = () => {
   }
 
   const handleModalChange = e => {
-    console.log('Modal, extra info', e.target.id)
+    const userInput = parseInt(e.target.id)
+    console.log('userInput',userInput)
+    console.log('locations',locations[0])
+    const filteredArray = locations.filter(ite => ite.id === userInput)
+    setModalInfo(filteredArray)
+    setLgShow(true)
   }
+
+  console.log('modal info', modalInfo)
 
   return (
     <>
+      <Modal
+        size="lg"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+        className="info-modal"
+      >
+        <Modal.Header>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Large Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
+
       <ReactMapGL
         {...viewport}
         width="100vw"
