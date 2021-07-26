@@ -4,7 +4,8 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 import AppNavigation from './AppNavigation'
 import { usePosition } from '../hooks/usePosition'
 import Modal from 'react-bootstrap/Modal'
-// import Carousel from 'react-bootstrap/Carousel'
+import Form from 'react-bootstrap/Form'
+import Rating from 'react-rating'
 
 const MapIndex = () => {
   //* Location State
@@ -95,9 +96,29 @@ const MapIndex = () => {
               {ite.comments.map(ite =>
                 <div key={ite.id} className="comment">
                   <img src={ite.owner.profile_image} alt="profile-photo" />
-                  <p>{ite.text}</p>
+                  <div className="comm-text">
+                    <p className="main-text">{ite.text}</p>
+                    <p className="poster"> <strong>posted by</strong> @{ite.owner.username}</p>
+                  </div>
                 </div>
               )}
+              <hr />
+              <div className="add-comment">
+                <h5>add a comment..</h5>
+                <div className="form-comment">
+                  <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Rating
+                        emptySymbol="far fa-star"
+                        fullSymbol="fas fa-star"
+                      />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                      <Form.Control as="textarea" rows={3} placeholder="add your comment here..." />
+                    </Form.Group>
+                  </Form>
+                </div>
+              </div>
             </div>
           </Modal.Body>
         </Modal>

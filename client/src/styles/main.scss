@@ -196,20 +196,37 @@ body {
   }
   .comments {
     .comment{
+      margin-top: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid rgb(179, 178, 178);
       border-radius: 10px;
       padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       img {
         width: 70px;
         height: 70px;
         border-radius: 100px;
       }
-      p{
+      .main-text{
+        margin: 10px 100px 10px 0;
         margin-right: 100px;
       }
+      .poster{
+        color: grey;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .add-comment{
+    margin-top: 30px;
+    h5 {
+      margin-bottom: 20px;
+    }
+    .form-comment{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 10px;
     }
   }
 }
