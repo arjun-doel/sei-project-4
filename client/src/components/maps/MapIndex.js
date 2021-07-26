@@ -82,7 +82,7 @@ const MapIndex = () => {
             <hr />
             <div className="modal-description">
               <p>{ite.description}</p>
-              <span><strong>posted by</strong> {ite.owner.username}</span>
+              <span><strong>posted by</strong> @{ite.owner.username}</span>
             </div>
             <hr />
             <div className="modal-gallery">
@@ -97,6 +97,12 @@ const MapIndex = () => {
                 <div key={ite.id} className="comment">
                   <img src={ite.owner.profile_image} alt="profile-photo" />
                   <div className="comm-text">
+                    <Rating
+                      emptySymbol="far fa-star"
+                      fullSymbol="fas fa-star"
+                      initialRating={ite.rating}
+                      readonly
+                    />
                     <p className="main-text">{ite.text}</p>
                     <p className="poster"> <strong>posted by</strong> @{ite.owner.username}</p>
                   </div>
@@ -116,6 +122,7 @@ const MapIndex = () => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                       <Form.Control as="textarea" rows={3} placeholder="add your comment here..." />
                     </Form.Group>
+                    <button className="submit-comment">submit</button>
                   </Form>
                 </div>
               </div>

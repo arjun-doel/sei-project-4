@@ -217,6 +217,17 @@ body {
         font-size: 0.8rem;
       }
     }
+    .submit-comment{
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      transition: 0.5s ease-in-out;
+    }
+    .submit-comment:hover{
+      transform: scale(1.01);
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    }
   }
   .add-comment{
     margin-top: 30px;
