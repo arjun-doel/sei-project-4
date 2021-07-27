@@ -3,6 +3,8 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Rating from 'react-rating'
 import Collapse from 'react-bootstrap/Collapse'
+import axios from 'axios'
+import { getTokenFromLocalStorage } from '../hooks/auth'
 
 const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
@@ -25,7 +27,17 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     setCommentData(commentDataWithRating)
   }
 
-  console.log(commentData)
+  const handleCommentSubmit = async e => {
+    e.preventDefault()
+    try {
+      const { data } = await axios.post('/api/comments/', commentData, {
+        headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+      })
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const averageRating = () => {
     const average = comments.reduce((acc, currentValue) => {
@@ -131,7 +143,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
             <div className="add-comment">
               <h5>add a comment..</h5>
               <div className="form-comment">
-                <Form>
+                <Form onSubmit={handleCommentSubmit}>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Rating
                       emptySymbol="far fa-star"
