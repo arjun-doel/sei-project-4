@@ -34,6 +34,11 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
       })
       console.log(data)
+      setCommentData({
+        text: '',
+        rating: 0,
+        location: id,
+      })
     } catch (error) {
       console.log(error)
     }
