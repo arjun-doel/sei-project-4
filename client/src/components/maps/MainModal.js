@@ -57,10 +57,14 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           </h5>
           <Collapse in={open}>
             <div className="main-address-modal">
-              <p>{address}</p>
-              <p>{city}</p>
-              <p>{postCode}</p>
-              <p>{country}</p>
+              <p>{address} 
+                <br />
+                {city}
+                <br />
+                {postCode}
+                <br />
+                {country}
+              </p>
             </div>
           </Collapse>
           <hr />

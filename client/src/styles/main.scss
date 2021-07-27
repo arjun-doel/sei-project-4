@@ -140,14 +140,47 @@ body {
   }
 }
 
+
 .add-mdl-form{
   padding: 20px;
   .add-frm-grp{
     margin: 7px;
+    border: none !important;
+    padding: 10px;
   }
   .submit-add-form{
     width: 100%;
     margin-top: 50px;
+  }
+  .pricing-wrap{
+    width: 100%;
+    .pricing-select{
+      margin-top: -10px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgb(213, 213, 213);
+      outline: none;
+    }
+    margin-bottom: 20px;
+  }
+  .upload-pic{
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 10px;
+    padding: 10px;
+    .single-upload{
+      padding: 10px;
+      label{
+        padding: 10px;
+        background-color: maroon;
+        color: white;
+        border-radius: 10px;
+        transition: 0.5s ease-in-out;
+      }
+      label:hover{
+        transform: scale(1.05);
+      }
+    }
   }
 }
 
@@ -191,8 +224,8 @@ body {
     }
   }
   .main-address-modal{
-    line-height: 0.3rem;
-    margin-top: 30px;
+    // line-height: 0.3rem;
+    // margin-top: 30px;
     font-size: 0.8rem;
   }
   .modal-description{

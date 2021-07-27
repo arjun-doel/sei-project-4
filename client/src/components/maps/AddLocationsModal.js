@@ -12,6 +12,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
         show={show}
         onHide={handleClose}
         keyboard={false}
+        size="lg"
       >
         <Modal.Header>
           <Modal.Title>add a new location</Modal.Title>
@@ -25,18 +26,30 @@ const AddLocationsModal = ({ show, handleClose }) => {
               </Form.Group>
             </Row>
 
-            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
-              <Form.Label>Default file input example</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
-            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
-              <Form.Label>Default file input example</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
-            <Form.Group controlId="formFile" className="mb-3 add-frm-grp">
-              <Form.Label>Default file input example</Form.Label>
-              <Form.Control type="file" />
-            </Form.Group>
+            <div className="pricing-wrap">
+              <p>choose pricing range</p>
+              <select name="price" className="pricing-select">
+                <option value="1">£</option>
+                <option value="2">££</option>
+                <option value="3">£££</option>
+              </select>
+            </div>
+
+            <p>add photos</p>
+            <div className="upload-pic">
+              <div className="single-upload">
+                <input type="file" id="upload" hidden />
+                <label htmlFor="upload">Choose File <i className="far fa-image"></i></label>
+              </div>
+              <div className="single-upload">
+                <input type="file" id="upload" hidden />
+                <label htmlFor="upload">Choose File <i className="far fa-image"></i></label>
+              </div>
+              <div className="single-upload">
+                <input type="file" id="upload" hidden />
+                <label htmlFor="upload">Choose File <i className="far fa-image"></i></label>
+              </div>
+            </div>
 
             <Row>
               <Form.Group as={Col} controlId="formGridPassword" className="add-frm-grp">
@@ -55,10 +68,10 @@ const AddLocationsModal = ({ show, handleClose }) => {
                 <Form.Control placeholder="City" />
               </Col>
               <Col>
-                <Form.Control placeholder="State" />
+                <Form.Control placeholder="State" className="state-post" />
               </Col>
               <Col>
-                <Form.Control placeholder="Zip" />
+                <Form.Control placeholder="Zip" className="state-post" />
               </Col>
             </Row>
 
