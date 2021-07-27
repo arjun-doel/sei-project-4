@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import NavigationHome from '../home/NavigationHome'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
   const history = useHistory()
@@ -25,13 +27,13 @@ const Login = () => {
     event.preventDefault()
     try {
       const { data } = await axios.post('/api/auth/login/', loginData)
-      console.log(data)
+      console.log('data', data)
       console.log(loginData)
       setTokenToLocalStorage(data.token)
       history.push('/maps')
-      // toast.success('Welcome Back! 😻')
+      toast.success(`${data.message}`)
     } catch (err) {
-      // setError(true)
+      toast.warning('oops something went wrong!')
       console.log(err)
     }
   }
@@ -39,6 +41,17 @@ const Login = () => {
   return (
     <>
       <NavigationHome />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <form onSubmit={handleSubmit}>
         <div className="login-form">
           <input type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
