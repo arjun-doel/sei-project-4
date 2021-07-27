@@ -8,6 +8,25 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
   const [open, setOpen] = useState(false)
   const [saved, setSaved] = useState(false)
 
+  const [commentData, setCommentData] = useState({
+    text: '',
+    rating: 0,
+    location: id,
+  })
+
+  const handleChange = (event) => {
+    const newCommentData = { ...commentData, [event.target.name]: event.target.value }
+    setCommentData(newCommentData)
+  }
+
+  const handleRatingChange = value => {
+    const ratingValue = value
+    const commentDataWithRating = { ...commentData, rating: ratingValue }
+    setCommentData(commentDataWithRating)
+  }
+
+  console.log(commentData)
+
   const averageRating = () => {
     const average = comments.reduce((acc, currentValue) => {
       return acc + parseInt(currentValue.rating) / 5
@@ -117,10 +136,14 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                     <Rating
                       emptySymbol="far fa-star"
                       fullSymbol="fas fa-star"
+                      // value={commentData.rating}
+                      initialRating={commentData.rating}
+                      onChange={handleRatingChange}
+                      name="rating"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" rows={3} placeholder="add your comment here..." />
+                    <Form.Control as="textarea" rows={3} name="text" value={commentData.text} onChange={handleChange} placeholder="add your comment here..." />
                   </Form.Group>
                   <button className="submit-comment">submit</button>
                 </Form>
