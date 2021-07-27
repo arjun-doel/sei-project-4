@@ -97,6 +97,33 @@ body {
   }
 }
 
+//* login page
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  input{
+    margin: 10px;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background: none;
+  }
+  .submit-login{
+    border-radius: 10px;
+    border: none;
+    background: coral;
+    color: white;
+    transition: 0.5s ease-in-out;
+  }
+  .submit-login:hover{
+    transform: scale(1.05);
+  }
+}
+
 //*Maps-Index
 .app-nav {
   position: absolute;
@@ -147,6 +174,9 @@ body {
     margin: 7px;
     border: none !important;
     padding: 10px;
+    .country{
+      margin-bottom: 20px;
+    }
   }
   .submit-add-form{
     width: 100%;

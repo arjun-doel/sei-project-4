@@ -1,34 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import NavigationHome from '../home/NavigationHome'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
+import axios from 'axios'
 
 const Login = () => {
+  const history = useHistory()
+  // const [errors, setError] = useState(false)
+  const [loginData, setloginData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleChange = (event) => {
+    const newLoginData = { ...loginData, [event.target.name]: event.target.value }
+    setloginData(newLoginData)
+  }
+  // console.log('newLoginData', newLoginData)
+  const setTokenToLocalStorage = (token) => {
+    window.localStorage.setItem('token', token)
+    console.log('TOKEN', token)
+  }
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    try {
+      const { data } = await axios.post('/api/auth/login/', loginData)
+      console.log(data)
+      console.log(loginData)
+      setTokenToLocalStorage(data.token)
+      history.push('/maps')
+      // toast.success('Welcome Back! 😻')
+    } catch (err) {
+      // setError(true)
+      console.log(err)
+    }
+  }
+
   return (
     <>
       <NavigationHome />
-      <Container fluid="md" className="center-height animate__slideOutDown">
-        <Row className="justify-content-md-center">
-          <Col xs={7}>
-            <Form className='register-form'>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>email</Form.Label>
-                <Form.Control name="email" type="email" placeholder="enter email" />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>password</Form.Label>
-                <Form.Control name="password" type="password" placeholder="enter password" />
-              </Form.Group>
-
-              <button type="submit">submit</button>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
-
+      <form onSubmit={handleSubmit}>
+        <div className="login-form">
+          <input type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="enter password" value={loginData.password} onChange={handleChange} required />
+          <input type="submit" value="login" className="submit-login" />
+        </div>
+      </form>
     </>
   )
 }

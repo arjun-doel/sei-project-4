@@ -32,6 +32,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
                 <option value="1">£</option>
                 <option value="2">££</option>
                 <option value="3">£££</option>
+                <option value="4">££££</option>
               </select>
             </div>
 
@@ -66,6 +67,9 @@ const AddLocationsModal = ({ show, handleClose }) => {
             <Row className="add-frm-grp">
               <Col xs={7}>
                 <Form.Control placeholder="City" />
+              </Col>
+              <Col xs={5}>
+                <Form.Control placeholder="Country" className="country" />
               </Col>
               <Col>
                 <Form.Control placeholder="State" className="state-post" />
