@@ -72,6 +72,7 @@ const MapIndex = () => {
           comments={ite.comments}
           lgShow={lgShow}
           setLgShow={setLgShow}
+          priceTag={ite.price_rage}
         />
       )}
 

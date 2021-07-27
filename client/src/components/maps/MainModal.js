@@ -15,6 +15,15 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     return Math.ceil(average)
   }
 
+  const priceTags = () => {
+    // eslint-disable-next-line prefer-const
+    let stars = []
+    for (let i = 0; i < 3; ++i) {
+      stars.push(<i className="fas fa-pound-sign"></i>)
+    }
+    return stars
+  }
+
   const addToFavourites = () => {
     setSaved(!saved)
   }
@@ -35,13 +44,16 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
               {name}
               {!saved ? <i onClick={addToFavourites} className="far fa-heart"></i> : <i onClick={addToFavourites} className="fas fa-heart"></i>}
             </div>
-            <Rating
-              emptySymbol="far fa-star"
-              fullSymbol="fas fa-star"
-              readonly
-              className="rating-header"
-              initialRating={averageRating()}
-            />
+            <div className="main-ratings">
+              <Rating
+                emptySymbol="far fa-star"
+                fullSymbol="fas fa-star"
+                readonly
+                className="rating-header"
+                initialRating={averageRating()}
+              />
+              <p className="price-header">{priceTags()}</p>
+            </div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -51,13 +63,13 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           </div>
           <hr />
           <h5 className="modal-address" aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>
-            address 
-            {!open ? <i className="fas fa-chevron-circle-down"></i> : 
-              <i className="fas fa-chevron-circle-up"></i> }
+            address
+            {!open ? <i className="fas fa-chevron-circle-down"></i> :
+              <i className="fas fa-chevron-circle-up"></i>}
           </h5>
           <Collapse in={open}>
             <div className="main-address-modal">
-              <p>{address} 
+              <p>{address}
                 <br />
                 {city}
                 <br />

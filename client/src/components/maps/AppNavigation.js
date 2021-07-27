@@ -14,6 +14,10 @@ const AppNavigation = ({ showPosition }) => {
     console.log('add location')
     setShow(true)
   }
+  
+  const logoutToken = () => {
+    window.localStorage.removeItem('token')
+  }
 
   return (
     <>
@@ -50,7 +54,7 @@ const AppNavigation = ({ showPosition }) => {
               </LinkContainer>
 
               <LinkContainer to="/" className="left-icons">
-                <Nav.Link>logout</Nav.Link>
+                <Nav.Link onClick={logoutToken}>logout</Nav.Link>
               </LinkContainer>
             </Nav>
 

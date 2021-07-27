@@ -48,9 +48,7 @@ const Login = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
         draggable
-        pauseOnHover
       />
       <form onSubmit={handleSubmit}>
         <div className="login-form">

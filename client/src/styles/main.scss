@@ -229,10 +229,26 @@ body {
       margin-left: 290px;
     }
   }
-  .rating-header{
-    font-size: 0.9rem;
+  .main-ratings{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    .rating-header{
+      font-size: 0.9rem;
+    }   
+    .price-header{
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: grey;
+      i {
+        padding: 0 1px 0 1px;
+      }
+      margin-bottom: -5px;
+    } 
   }
+
   .short-info {
+    margin-top: -10px;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
