@@ -16,6 +16,12 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     location: id,
   })
 
+  // eslint-disable-next-line no-unused-vars
+  const [currentComments, setCurrentComments] = useState(comments)
+
+  // setCurrentComments(comments)
+  console.log('current', currentComments)
+
   const handleChange = (event) => {
     const newCommentData = { ...commentData, [event.target.name]: event.target.value }
     setCommentData(newCommentData)
@@ -34,6 +40,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
       })
       console.log(data)
+      setCurrentComments([ ...currentComments, data])
       setCommentData({
         text: '',
         rating: 0,
@@ -129,8 +136,8 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           <hr />
           <div className="comments">
             <h5>comments</h5>
-            {comments.map(ite =>
-              <div key={ite.id} className="comment">
+            {currentComments.map(ite =>
+              <div key={ite.created_at} className="comment">
                 <img src={ite.owner.profile_image} alt="profile-photo" />
                 <div className="comm-text">
                   <Rating
