@@ -17,11 +17,11 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
 
   const priceTags = () => {
     // eslint-disable-next-line prefer-const
-    let stars = []
+    let money = []
     for (let i = 0; i < 3; ++i) {
-      stars.push(<i className="fas fa-pound-sign"></i>)
+      money.push(<i>£</i>)
     }
-    return stars
+    return money
   }
 
   const addToFavourites = () => {

@@ -59,6 +59,16 @@ const AddLocationsModal = ({ show, handleClose }) => {
               </Form.Group>
             </Row>
 
+            <Form.Label>add operating hours</Form.Label>
+            <Row>
+              <Col>
+                <Form.Control placeholder="opening hour" />
+              </Col>
+              <Col>
+                <Form.Control placeholder="closing hour" />
+              </Col>
+            </Row>
+
             <Form.Group className="mb-3 add-frm-grp" controlId="formGridAddress1">
               <Form.Label>Address</Form.Label>
               <Form.Control placeholder="1234 Main St" />
