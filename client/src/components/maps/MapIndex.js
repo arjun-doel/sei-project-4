@@ -44,7 +44,7 @@ const MapIndex = () => {
       latitude: latitude, 
       longitude: longitude,
       zoom: 15,
-      transitionInterpolator: new FlyToInterpolator({ speed: 1 }),
+      transitionInterpolator: new FlyToInterpolator({ speed: 2 }),
       transitionDuration: 'auto',
     })
   }
