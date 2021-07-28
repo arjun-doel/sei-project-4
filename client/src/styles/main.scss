@@ -84,6 +84,13 @@ body {
         border-bottom: 1px solid black;
         outline: none;
       }
+      .upload-wrapper{
+        i {
+          margin-left: 10px;
+          color: green;
+          font-size: 1.2rem;
+        }
+      }
     }
     button{
       width: 100%;

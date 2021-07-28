@@ -5,6 +5,8 @@ import Rating from 'react-rating'
 import Collapse from 'react-bootstrap/Collapse'
 import axios from 'axios'
 import { getTokenFromLocalStorage } from '../hooks/auth'
+import useLocalStorage from '../hooks/useLocalStorage'
+import { ToastContainer, toast } from 'react-toastify'
 
 const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
@@ -15,6 +17,9 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     rating: 0,
     location: id,
   })
+
+  //* Favourites State
+  const [localStorageItem, setLocalStorageItem] = useLocalStorage('items', [])
 
   // eslint-disable-next-line no-unused-vars
   const [currentComments, setCurrentComments] = useState(comments)
@@ -40,7 +45,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
       })
       console.log(data)
-      setCurrentComments([ ...currentComments, data])
+      setCurrentComments([...currentComments, data])
       setCommentData({
         text: '',
         rating: 0,
@@ -67,12 +72,41 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     return money
   }
 
-  const addToFavourites = () => {
-    setSaved(!saved)
+  const addToFavourites = e => {
+    const userInput = e.target.id
+    const items = JSON.parse(localStorage.getItem('items'))
+    if (!items) {
+      const newLocalStorageItems = [...localStorageItem, { id: userInput }]
+      setLocalStorageItem(newLocalStorageItems)
+      toast.success('This location is now saved to your favourites.')
+      setSaved(!saved)
+      return
+    } 
+    const alreadyInLocalStorage = items.some(i => i.id.includes(userInput))
+    if (alreadyInLocalStorage){
+      const filterOutId = items.filter(ite => ite.id !== userInput)
+      setLocalStorageItem(filterOutId)
+      toast.warning('location has been removed from your favourites')
+      setSaved(!saved)
+    } else {
+      const newLocalStorageItems = [...localStorageItem, { id: userInput }]
+      setLocalStorageItem(newLocalStorageItems)
+      toast.success('This location is now saved to your favourites.')
+      setSaved(!saved)
+    }
   }
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
       <Modal
         key={id}
         size="md"
@@ -85,7 +119,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           <Modal.Title id="example-modal-sizes-title-lg">
             <div className="modal-info-header">
               {name}
-              {!saved ? <i onClick={addToFavourites} className="far fa-heart"></i> : <i onClick={addToFavourites} className="fas fa-heart"></i>}
+              {!saved ? <i id={id} onClick={addToFavourites} className="far fa-heart"></i> : <i id={id} onClick={addToFavourites} className="fas fa-heart"></i>}
             </div>
             <div className="main-ratings">
               <Rating

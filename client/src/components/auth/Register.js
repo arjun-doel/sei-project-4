@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import NavigationHome from '../home/NavigationHome'
 import { ImageUploadField } from '../hooks/ImageUploadField'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Register = () => {
 
@@ -33,22 +35,39 @@ const Register = () => {
   }
 
   const handleImageUrl = url => {
-    setFormData({ ...formData, profileImage: url })
+    setFormData({ ...formData, profile_image: url })
   }
 
 
   //* Submit form as post request to backend
-  // const submitForm = async e => {
-  //   e.preventDefault()
-  // }
+  const submitForm = async e => {
+    e.preventDefault()
+    try {
+      await axios.post('/api/auth/register/', formData)
+      // console.log('data', data)
+      console.log(formData)
+      toast.success('Registration Success')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   console.log(formData)
 
   return (
     <>
       <NavigationHome />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
       <div className="register-wrap">
-        <form className="register-form">
+        <form onSubmit={submitForm} className="register-form">
 
           <div className="form-group-register">
             <label className="frm-label" htmlFor="email">username</label>
@@ -80,7 +99,7 @@ const Register = () => {
 
             <ImageUploadField 
               value={formData.profile_image}
-              name="profileImage"
+              name="profile_image"
               handleImageUrl={handleImageUrl}
             />
 
