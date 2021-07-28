@@ -64,35 +64,32 @@ body {
 }
 
 //* Register page
-.register-form {
+.register-wrap{
   display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  button {
-    background: #1F5E84;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 8px;
-    transition: 0.7s;
-  }
-  button:hover {
-    background: #236791;
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    text-decoration: rgb(12, 8, 224);
-  }
-  .upload-profile{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-    input {
-      padding: 10px;
-      border: 1px solid rgb(193, 193, 193);
-      border-radius: 5px;
-      button {
-        background-color: red;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  .register-form{
+    width: 30%;
+    .row-register{
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-group-register{
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0 20px 0;
+      .main-input{
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
       }
+    }
+    button{
+      width: 100%;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
     }
   }
 }
@@ -104,6 +101,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  label{
+    font-size: 0.8;
+    color: rgb(94, 94, 94);
+    border-bottom: 1px solid black;
+  }
   input{
     margin: 10px;
     width: 30%;
@@ -118,6 +120,7 @@ body {
     background: coral;
     color: white;
     transition: 0.5s ease-in-out;
+    text-align: center;
   }
   .submit-login:hover{
     transform: scale(1.05);

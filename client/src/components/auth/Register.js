@@ -1,95 +1,78 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NavigationHome from '../home/NavigationHome'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
 const Register = () => {
 
   //* Form object state
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-  })
+  // const [formData, setFormData] = useState({
+  //   username: '',
+  //   email: '',
+  //   password: '',
+  //   passwordConfirmation: '',
+  // })
 
-  const [errors, setErrors] = useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-  })
+  // const [errors, setErrors] = useState({
+  //   username: '',
+  //   email: '',
+  //   password: '',
+  //   passwordConfirmation: '',
+  // })
 
   // const [newSubmitForm, setNewSubmitForm] = useState([])
 
   //*Get userInput
-  const handleUserData = e => {
-    const getUserData = { ...formData, [e.target.name]: e.target.value }
-    const newErrors = { ...errors, [e.target.name]: '' }
-    setFormData(getUserData)
-    setErrors(newErrors)
-  }
+  // const handleUserData = e => {
+  //   const getUserData = { ...formData, [e.target.name]: e.target.value }
+  //   const newErrors = { ...errors, [e.target.name]: '' }
+  //   setFormData(getUserData)
+  //   setErrors(newErrors)
+  // }
 
 
   //* Submit form as post request to backend
-  const submitForm = async e => {
-    e.preventDefault()
-  }
+  // const submitForm = async e => {
+  //   e.preventDefault()
+  // }
 
   return (
     <>
       <NavigationHome />
+      <div className="register-wrap">
+        <form className="register-form">
 
-      <Container fluid="md" className="center-height animate__slideOutDown">
-        <Row className="justify-content-md-center">
-          <Col xs={7}>
-            <Form onSubmit={submitForm} className='register-form'>
-
-              <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
-                  <Form.Label>first name</Form.Label>
-                  <Form.Control type="email" placeholder="enter first name" />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label>last name</Form.Label>
-                  <Form.Control type="text" placeholder="enter last name" />
-                </Form.Group>
-              </Row>
-
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>username</Form.Label>
-                <Form.Control name="username" type="text" placeholder="@username" value={formData.username} onChange={handleUserData} />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>email</Form.Label>
-                <Form.Control name="email" type="email" placeholder="enter email" value={formData.email} onChange={handleUserData} />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>password</Form.Label>
-                <Form.Control name="password" type="password" placeholder="enter password" value={formData.password} onChange={handleUserData} />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>please confirm your password</Form.Label>
-                <Form.Control name="passwordConfirmation" type="password" placeholder="confirm password" value={formData.passwordConfirmation} onChange={handleUserData} />
-              </Form.Group>
-
-              <div className="upload-profile">
-                <Form.Label>upload a profile photo</Form.Label>
-                <input type="file" id="myFile" name="filename" placeholder="choose profile photo"/>
-              </div>
-
-              <button type="submit">submit</button>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
-
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="email">username</label>
+            <input className="main-input" type="text" name="username" placeholder="enter username" required />
+          </div>
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="email">email</label>
+            <input className="main-input" type="email" name="email" placeholder="enter email" required />
+          </div>
+          <div className="row-register">
+            <div className="form-group-register">
+              <label className="frm-label" htmlFor="first_name">first name</label>
+              <input className="main-input" type="text" name="first_name" placeholder="enter first name" required />
+            </div>
+            <div className="form-group-register">
+              <label className="frm-label" htmlFor="last_name">email</label>
+              <input className="main-input" type="text" name="last_name" placeholder="enter last name" required />
+            </div>
+          </div>
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="password">password</label>
+            <input className="main-input" type="password" name="password" placeholder="enter password" required />
+          </div>
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="password_confirmation">password confirmation</label>
+            <input className="main-input" type="password" name="password_confirmation" placeholder="confirm password" required />
+          </div>
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="profile_photo">upload profile photo</label>
+            <input className="file-input" type="file" name="profile_photo" placeholder="choose image" required />
+          </div>
+          <button>submit</button>
+        </form>
+      </div>
     </>
   )
 }
