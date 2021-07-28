@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL, { Marker, FlyToInterpolator } from 'react-map-gl'
 import AppNavigation from './AppNavigation'
 import { usePosition } from '../hooks/usePosition'
 import MainModal from './MainModal'
@@ -39,7 +39,14 @@ const MapIndex = () => {
     console.log('latitude', latitude)
     console.log('long', longitude)
     console.log(error)
-    setNewViewport({ ...viewport, latitude: latitude, longitude: longitude })
+    setNewViewport({ 
+      ...viewport, 
+      latitude: latitude, 
+      longitude: longitude,
+      zoom: 15,
+      transitionInterpolator: new FlyToInterpolator({ speed: 1 }),
+      transitionDuration: 'auto',
+    })
   }
 
   const handleModalChange = e => {
