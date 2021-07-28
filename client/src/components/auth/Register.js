@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavigationHome from '../home/NavigationHome'
+import { ImageUploadField } from '../hooks/ImageUploadField'
 
 const Register = () => {
 
@@ -11,7 +12,7 @@ const Register = () => {
     last_name: '',
     profile_image: '',
     password: '',
-    passwordConfirmation: '',
+    password_confirmation: '',
   })
 
   // const [errors, setErrors] = useState({
@@ -31,13 +32,17 @@ const Register = () => {
     // setErrors(newErrors)
   }
 
-  console.log(formData)
+  const handleImageUrl = url => {
+    setFormData({ ...formData, profileImage: url })
+  }
 
 
   //* Submit form as post request to backend
   // const submitForm = async e => {
   //   e.preventDefault()
   // }
+
+  console.log(formData)
 
   return (
     <>
@@ -72,8 +77,13 @@ const Register = () => {
             <input className="main-input" type="password" name="password_confirmation" placeholder="confirm password" value={formData.password_confirmation} onChange={handleUserData} required />
           </div>
           <div className="form-group-register">
-            <label className="frm-label" htmlFor="profile_image">upload profile photo</label>
-            <input className="file-input" type="file" name="profile_image" placeholder="choose image" value={formData.profile_image} onChange={handleUserData} required />
+
+            <ImageUploadField 
+              value={formData.profile_image}
+              name="profileImage"
+              handleImageUrl={handleImageUrl}
+            />
+
           </div>
           <button>submit</button>
         </form>
