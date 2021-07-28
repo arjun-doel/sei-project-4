@@ -8,6 +8,11 @@ class Location(models.Model):
         (3, 'Expensive'),
         (4, 'Very Expensive')
     )
+    location_tier = (
+        (1, 'landmarks'),
+        (2, 'food'),
+        (3, 'bars'),
+    )
     
     name = models.CharField(max_length=50, default=None)
     image1 = models.CharField(max_length=500, blank=True)
@@ -15,6 +20,7 @@ class Location(models.Model):
     image3 = models.CharField(max_length=500, blank=True)
     description = models.TextField(max_length=200, default=None)
     price_rage = models.IntegerField(choices=price_tier, default=2)
+    location_type = models.IntegerField(choices=location_tier, default=2)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100, default=None, blank=True)
