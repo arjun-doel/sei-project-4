@@ -361,6 +361,39 @@ body {
   }
 }
 
+.favourites-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  .favourites-single{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20px;
+    // border: 1px solid rgb(135, 135, 135);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    .fav-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i{
+        font-size: 1.6rem;
+      }
+    }
+    .fav-short-text{
+      color: gray;
+    }
+    .fav-descript{
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
 //* Toasts
 // .Toastify__toast--success{ 
 // }
