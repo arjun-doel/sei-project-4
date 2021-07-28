@@ -11,7 +11,9 @@ const UserNav = () => {
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
-          <Nav.Link className="right-icons"><i className="fas fa-map-marked"></i></Nav.Link>
+          <LinkContainer to="/maps">
+            <Nav.Link className="right-icons"><i className="fas fa-map-marked"></i></Nav.Link>
+          </LinkContainer>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 

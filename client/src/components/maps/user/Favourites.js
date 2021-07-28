@@ -5,13 +5,21 @@ import UserNav from './UserNav'
 const Favourites = () => {
   // const [locationsData, setLocationsData] = useState([])
 
+
+  const getItem = () => {
+    const item = JSON.parse(localStorage.getItem('items'))
+    const toNumber = item.map(ite => parseInt(ite))
+    return toNumber
+  }
+
   useEffect(() => {
+    console.log('loads',getItem())
     const getData = async () => {
       try {
-        const getItemsFromLocalStorage = JSON.parse(localStorage.getItem('items'))
         const { data } = await axios.get('/api/maps')
-        const filterData = data.filter(ite => !getItemsFromLocalStorage.id.includes(ite.id))
-        console.log(filterData)
+        console.log('data',typeof(data[0].id)) 
+        const comparison = data.filter(ite => getItem().includes(parseFloat(ite.id)))
+        console.log('f', comparison)
       } catch (err) {
         console.log(err)
       }

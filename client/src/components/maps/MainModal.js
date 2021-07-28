@@ -76,7 +76,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     const userInput = e.target.id
     const items = JSON.parse(localStorage.getItem('items'))
     if (!items) {
-      const newLocalStorageItems = [...localStorageItem, { id: userInput }]
+      const newLocalStorageItems = [...localStorageItem, userInput]
       setLocalStorageItem(newLocalStorageItems)
       toast.success('This location is now saved to your favourites.')
       setSaved(!saved)
@@ -89,7 +89,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
       toast.warning('location has been removed from your favourites')
       setSaved(!saved)
     } else {
-      const newLocalStorageItems = [...localStorageItem, { id: userInput }]
+      const newLocalStorageItems = [...localStorageItem, userInput]
       setLocalStorageItem(newLocalStorageItems)
       toast.success('This location is now saved to your favourites.')
       setSaved(!saved)
