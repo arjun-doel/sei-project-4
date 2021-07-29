@@ -203,13 +203,13 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                       fullSymbol="fas fa-star"
                       // value={commentData.rating}
                       initialRating={commentData.rating}
-                      className="comment-rating"
+                      className="form-comment-rating"
                       onChange={handleRatingChange}
                       name="rating"
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" rows={3} name="text" value={commentData.text} onChange={handleChange} placeholder="add your comment here..." />
+                    <Form.Control className="main-comment-text" as="textarea" rows={3} name="text" value={commentData.text} onChange={handleChange} placeholder="add your comment here..." />
                   </Form.Group>
                   <button className="submit-comment">submit</button>
                 </Form>

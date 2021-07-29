@@ -238,7 +238,6 @@ body {
     font-size: 1.3rem;
     i {
       margin-left: 290px;
-      color: $the-red;
     }
   }
   .main-ratings{
@@ -358,6 +357,18 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     padding: 10px;
+    outline: none;
+    .form-comment-rating{
+      color: $the-red;
+    }
+    .main-comment-text{
+      // border: none;
+      overflow: auto;
+      outline: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
     }
   }
 }
