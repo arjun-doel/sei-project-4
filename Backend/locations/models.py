@@ -9,9 +9,9 @@ class Location(models.Model):
         (4, 'Very Expensive')
     )
     location_tier = (
-        (1, 'landmarks'),
-        (2, 'food'),
-        (3, 'bars'),
+        ('landmarks', 'landmarks'),
+        ('food', 'food'),
+        ('bars', 'bars'),
     )
     
     name = models.CharField(max_length=50, default=None)
