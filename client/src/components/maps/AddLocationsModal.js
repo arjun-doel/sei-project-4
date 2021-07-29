@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import Modal from 'react-bootstrap/Modal'
 import { ImageUploadField } from '../hooks/ImageUploadField'
+import { getTokenFromLocalStorage } from '../hooks/auth'
+import { ToastContainer, toast } from 'react-toastify'
 
 const AddLocationsModal = ({ show, handleClose }) => {
   const [formData, setFormData] = useState({
@@ -15,6 +18,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
     city: '',
     state: '',
     country: '',
+    postal_code: '',
   })
 
   const handleUserData = e => {
@@ -32,10 +36,29 @@ const AddLocationsModal = ({ show, handleClose }) => {
     setFormData({ ...formData, image3: url })
   }
 
-  console.log(formData)
+  const submitForm = async e => {
+    e.preventDefault()
+    try {
+      await axios.post('/api/maps/', formData, {
+        headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+      })
+      toast.success('your location has been succesfully added!')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
       <Modal
         show={show}
         onHide={handleClose}
@@ -46,7 +69,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
           <Modal.Title>add a new location</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="add-location-frm">
+          <form onSubmit={submitForm} className="add-location-frm">
             <div className="add-loc-frm-group">
               <label>name</label>
               <input type="text" placeholder="enter location name" name="name" onChange={handleUserData} value={formData.name} required />
@@ -109,7 +132,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
             </div>
             <div className="add-loc-frm-group">
               <label>postcode</label>
-              <input type="text" placeholder="enter postcode" name="postcode" onChange={handleUserData} value={formData.postcode} required/>
+              <input type="text" placeholder="enter postcode" name="postal_code" onChange={handleUserData} value={formData.postal_code} required />
             </div>
             <button>submit</button>
           </form>
