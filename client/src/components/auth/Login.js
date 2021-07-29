@@ -50,13 +50,23 @@ const Login = () => {
         rtl={false}
         draggable
       />
-      <form onSubmit={handleSubmit}>
-        <div className="login-form">
-          <input type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
-          <input type="password" name="password" placeholder="enter password" value={loginData.password} onChange={handleChange} required />
-          <input type="submit" value="login" className="submit-login" />
-        </div>
-      </form>
+      <div className="register-wrap">
+        <form onSubmit={handleSubmit} className="register-form">
+
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="email">email</label>
+            <input className="main-input" type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
+          </div>
+
+          <div className="form-group-register">
+            <label className="frm-label" htmlFor="password">password</label>
+            <input className="main-input" type="password" name="password" placeholder="enter password" value={loginData.password} onChange={handleChange} required />
+          </div>
+
+          <button>submit</button>
+          
+        </form>
+      </div>
     </>
   )
 }

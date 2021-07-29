@@ -124,40 +124,45 @@ body {
 }
 
 //* login page
-.login-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  label{
-    font-size: 0.8;
-    color: rgb(94, 94, 94);
-    border-bottom: 1px solid black;
-  }
-  input{
-    margin: 10px;
-    width: 30%;
-    border: none;
-    border-bottom: 2px solid black;
-    outline: none;
-    background: none;
-  }
-  .submit-login{
-    border-radius: 10px;
-    border: none;
-    color: white;
-    font-weight: bold;
-    background: $the-red;
-    color: white;
-    transition: 0.5s ease-in-out;
-    text-align: center;
-    padding: 16px;
-  }
-  .submit-login:hover{
-    transform: scale(1.05);
+.login-wrapper{
+  background-image: url('https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627592946/useLocal-app-data/Front-End/Homepage/city-4298285_1920_xzt66m.jpg');
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+    label{
+      font-size: 0.8;
+      color: rgb(94, 94, 94);
+      border-bottom: 1px solid black;
+    }
+    input{
+      margin: 10px;
+      width: 30%;
+      border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+      background: none;
+    }
+    .submit-login{
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-weight: bold;
+      background: $the-red;
+      color: white;
+      transition: 0.5s ease-in-out;
+      text-align: center;
+      padding: 16px;
+    }
+    .submit-login:hover{
+      transform: scale(1.05);
+    }
   }
 }
+
 
 //*Maps-Index
 .app-nav {
