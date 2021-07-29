@@ -94,7 +94,7 @@ const Register = () => {
 
             <Fade right>
               <div className="form-group-register">
-                <label className="frm-label" htmlFor="last_name">email</label>
+                <label className="frm-label" htmlFor="last_name">last name</label>
                 <input className="main-input" type="text" name="last_name" placeholder="enter last name" value={formData.last_name} onChange={handleUserData} required />
               </div>
             </Fade>
