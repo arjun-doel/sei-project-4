@@ -74,6 +74,7 @@ const MapIndex = () => {
           address={ite.address}
           city={ite.city}
           country={ite.country}
+          price={ite.price_rage}
           postCode={ite.postal_code}
           owner={ite.owner}
           comments={ite.comments}

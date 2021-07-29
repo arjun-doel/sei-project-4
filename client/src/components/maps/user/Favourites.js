@@ -30,15 +30,21 @@ const Favourites = () => {
   }, [])
 
   const averageRating = () => {
-    const commentsArray = locationsData.map(ite => ite.comments)
-    console.log(typeof (locationsData[0].comments[0].rating))
-    console.log('com array->', commentsArray[2])
+    const dataWithComments = locationsData.filter(ite => ite.comments.length > 0)
+    console.log(dataWithComments)
+    const commentsArray = dataWithComments.map(ite => ite.comments)
+    console.log(commentsArray)
+    // console.log(typeof (locationsData[0].comments[0].rating))
+    // console.log('com array->', commentsArray[2])
     const average = commentsArray.reduce((acc, currentValue) => {
       return acc + currentValue.rating / 5
     }, 0)
-    console.log(average)
-    return Math.ceil(average)
+    console.log('average -> ', average)
+    // console.log(average)
+    // return Math.ceil(average)
   }
+
+  console.log(averageRating())
 
   const sortFavourites = () => {
     setSaved(!saved)
@@ -67,7 +73,7 @@ const Favourites = () => {
                   fullSymbol="fas fa-star"
                   readonly
                   className="rating-header"
-                  initialRating={averageRating()}
+                  initialRating={3}
                 />
               </div>
               <div className="fav-descript">

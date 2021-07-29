@@ -8,7 +8,7 @@ import { getTokenFromLocalStorage } from '../hooks/auth'
 import useLocalStorage from '../hooks/useLocalStorage'
 import { ToastContainer, toast } from 'react-toastify'
 
-const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, lgShow, setLgShow }) => {
+const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, price, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
   const [saved, setSaved] = useState(false)
 
@@ -66,34 +66,40 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
   const priceTags = () => {
     // eslint-disable-next-line prefer-const
     let money = []
-    for (let i = 0; i < 3; ++i) {
+    for (let i = 0; i < price; ++i) {
       money.push(<i>£</i>)
     }
     return money
+  }
+
+  const addToLocalStorage = (userInput) => {
+    const newLocalStorageItems = [...localStorageItem, userInput]
+    setLocalStorageItem(newLocalStorageItems)
+    toast.success('This location is now saved to your favourites.')
+    setSaved(!saved)
   }
 
   const addToFavourites = e => {
     const userInput = e.target.id
     const items = JSON.parse(localStorage.getItem('items'))
     if (!items) {
-      const newLocalStorageItems = [...localStorageItem, userInput]
-      setLocalStorageItem(newLocalStorageItems)
-      toast.success('This location is now saved to your favourites.')
-      setSaved(!saved)
-      return
-    } 
-    const alreadyInLocalStorage = items.some(i => i.id.includes(userInput))
-    if (alreadyInLocalStorage){
-      const filterOutId = items.filter(ite => ite.id !== userInput)
-      setLocalStorageItem(filterOutId)
-      toast.warning('location has been removed from your favourites')
-      setSaved(!saved)
+      addToLocalStorage(userInput)
     } else {
-      const newLocalStorageItems = [...localStorageItem, userInput]
-      setLocalStorageItem(newLocalStorageItems)
-      toast.success('This location is now saved to your favourites.')
-      setSaved(!saved)
+      addToLocalStorage(userInput)
     }
+    // console.log(typeof(items[0]))
+    // const alreadyInLocalStorage = items.some(i => i.id.includes(userInput))
+    // if (alreadyInLocalStorage){
+    //   const filterOutId = items.filter(ite => ite.id !== userInput)
+    //   setLocalStorageItem(filterOutId)
+    //   toast.warning('location has been removed from your favourites')
+    //   setSaved(!saved)
+    // } else {
+    //   const newLocalStorageItems = [...localStorageItem, userInput]
+    //   setLocalStorageItem(newLocalStorageItems)
+    //   toast.success('This location is now saved to your favourites.')
+    //   setSaved(!saved)
+    // }
   }
 
   return (
