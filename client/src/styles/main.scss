@@ -233,8 +233,8 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    line-height: 1rem;
-    font-size: 1.5rem;
+    line-height: 1.2rem;
+    font-size: 1.3rem;
     i {
       margin-left: 290px;
     }
@@ -302,6 +302,10 @@ body {
       width: 100%;
       margin: 10px;
       overflow-x: scroll;
+      transition: 0.7s ease-in-out;
+    }
+    img:hover{
+      transform: scale(1.9);
     }
   }
   .comments {
