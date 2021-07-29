@@ -7,6 +7,7 @@ import axios from 'axios'
 import { getTokenFromLocalStorage } from '../hooks/auth'
 import useLocalStorage from '../hooks/useLocalStorage'
 import { ToastContainer, toast } from 'react-toastify'
+import Fade from 'react-reveal'
 
 const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, price, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
@@ -177,20 +178,22 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           <div className="comments">
             <h5>comments</h5>
             {currentComments.map(ite =>
-              <div key={ite.created_at} className="comment">
-                <img src={ite.owner.profile_image} alt="profile-photo" />
-                <div className="comm-text">
-                  <Rating
-                    emptySymbol="far fa-star"
-                    fullSymbol="fas fa-star"
-                    initialRating={ite.rating}
-                    className="comment-rating"
-                    readonly
-                  />
-                  <p className="main-text">{ite.text}</p>
-                  <p className="poster"> <strong>posted by</strong> @{ite.owner.username}</p>
+              <Fade collapse key={ite.created_at}>
+                <div className="comment">
+                  <img src={ite.owner.profile_image} alt="profile-photo" />
+                  <div className="comm-text">
+                    <Rating
+                      emptySymbol="far fa-star"
+                      fullSymbol="fas fa-star"
+                      initialRating={ite.rating}
+                      className="comment-rating"
+                      readonly
+                    />
+                    <p className="main-text">{ite.text}</p>
+                    <p className="poster"> <strong>posted by</strong> @{ite.owner.username}</p>
+                  </div>
                 </div>
-              </div>
+              </Fade>
             )}
             <hr />
             <div className="add-comment">
