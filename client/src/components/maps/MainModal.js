@@ -184,6 +184,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                     emptySymbol="far fa-star"
                     fullSymbol="fas fa-star"
                     initialRating={ite.rating}
+                    className="comment-rating"
                     readonly
                   />
                   <p className="main-text">{ite.text}</p>
@@ -202,6 +203,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                       fullSymbol="fas fa-star"
                       // value={commentData.rating}
                       initialRating={commentData.rating}
+                      className="comment-rating"
                       onChange={handleRatingChange}
                       name="rating"
                     />

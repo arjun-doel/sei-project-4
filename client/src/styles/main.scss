@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 $posh-writing: 'Pacifico', cursive;
+$the-red: #D81159;
 
 * {
   box-sizing: border-box;
@@ -168,7 +169,7 @@ body {
 //? Icon Markers
 .mark-icon{
   i {
-    color: red;
+    color: $the-red;
     font-size: 2rem;
     transition: 0.4s ease-in-out;
   }
@@ -212,7 +213,7 @@ body {
       padding: 10px;
       label{
         padding: 10px;
-        background-color: maroon;
+        background-color: $the-red;
         color: white;
         border-radius: 10px;
         transition: 0.5s ease-in-out;
@@ -237,6 +238,7 @@ body {
     font-size: 1.3rem;
     i {
       margin-left: 290px;
+      color: $the-red;
     }
   }
   .main-ratings{
@@ -245,6 +247,7 @@ body {
     flex-direction: column;
     .rating-header{
       font-size: 0.9rem;
+      color: $the-red;
     }   
     .price-header{
       font-size: 0.9rem;
@@ -317,6 +320,9 @@ body {
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      .comment-rating{
+        color: $the-red;
+      }
       img {
         width: 70px;
         height: 70px;

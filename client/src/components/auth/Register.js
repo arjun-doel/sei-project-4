@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router'
 import NavigationHome from '../home/NavigationHome'
 import { ImageUploadField } from '../hooks/ImageUploadField'
 import { ToastContainer, toast } from 'react-toastify'
 
 const Register = () => {
+  const history = useHistory()
 
   //* Form object state
   const [formData, setFormData] = useState({
@@ -44,15 +46,13 @@ const Register = () => {
     e.preventDefault()
     try {
       await axios.post('/api/auth/register/', formData)
-      // console.log('data', data)
       console.log(formData)
+      history.push('/login')
       toast.success('Registration Success')
     } catch (err) {
       console.log(err)
     }
   }
-
-  console.log(formData)
 
   return (
     <>
