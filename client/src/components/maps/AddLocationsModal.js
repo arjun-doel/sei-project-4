@@ -131,6 +131,10 @@ const AddLocationsModal = ({ show, handleClose }) => {
               <input type="text" placeholder="enter state if required" name="state" onChange={handleUserData} value={formData.state} />
             </div>
             <div className="add-loc-frm-group">
+              <label>country</label>
+              <input type="text" placeholder="enter country" name="country" onChange={handleUserData} value={formData.country} />
+            </div>
+            <div className="add-loc-frm-group">
               <label>postcode</label>
               <input type="text" placeholder="enter postcode" name="postal_code" onChange={handleUserData} value={formData.postal_code} required />
             </div>
