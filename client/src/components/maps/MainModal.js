@@ -136,14 +136,15 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                 className="rating-header"
                 initialRating={averageRating()}
               />
-              <p className="price-header">{priceTags()}</p>
+              
             </div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="short-info">
             <span className="loc-type">food - dinner</span>
-            <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span>
+            {/* <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span> */}
+            <p className="price-header">{priceTags()}</p>
           </div>
           <hr />
           <h5 className="modal-address" aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>

@@ -86,6 +86,7 @@ body {
         outline: none;
       }
       .upload-wrapper{
+        margin-top: 50px;
         i {
           margin-left: 10px;
           color: green;
@@ -178,50 +179,45 @@ body {
   }
 }
 
-
-.add-mdl-form{
-  padding: 20px;
-  .add-frm-grp{
-    margin: 7px;
-    border: none !important;
-    padding: 10px;
-    .country{
-      margin-bottom: 20px;
-    }
-  }
-  .submit-add-form{
-    width: 100%;
-    margin-top: 50px;
-  }
-  .pricing-wrap{
-    width: 100%;
-    .pricing-select{
-      margin-top: -10px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid rgb(213, 213, 213);
+//* Add location Form
+.add-location-frm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .add-loc-frm-group{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    input{
+      margin-top: -3px;
+      border: none;
+      border-bottom: 1px solid black;
       outline: none;
     }
     margin-bottom: 20px;
-  }
-  .upload-pic{
-    border: 1px solid rgb(215, 215, 215);
-    border-radius: 10px;
-    padding: 10px;
-    .single-upload{
-      padding: 10px;
-      label{
-        padding: 10px;
-        background-color: $the-red;
-        color: white;
-        border-radius: 10px;
-        transition: 0.5s ease-in-out;
-      }
-      label:hover{
-        transform: scale(1.05);
-      }
+    .add-loc-img-upload{
+      border: none;
     }
+    select{
+      border: none;
+      border-bottom: 1px black solid;
+      padding: 10px;
+    }
+    textarea{
+      padding: 10px;
+    }
+  }
+  button{
+    width: 80%;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.7s ease-in-out;
+  }
+  button:hover{
+    transform: scale(1.05);
   }
 }
 
@@ -263,7 +259,7 @@ body {
     margin-top: -10px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     line-height: 2.4rem;
     .loc-type{
       font-weight: bold;

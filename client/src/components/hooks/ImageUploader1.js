@@ -6,7 +6,7 @@ const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 
-export const ImageUploadField = ({ handleImageUrl, value, labelName, nameOf }) => {
+export const ImageUploader1 = ({ handleImageUrl, value, labelName }) => {
 
   const handleUpload = async event => {
     const data = new FormData()
@@ -21,10 +21,10 @@ export const ImageUploadField = ({ handleImageUrl, value, labelName, nameOf }) =
   return (
     <>
       <div className="upload-wrapper">
-        <label className="frm-label" htmlFor={nameOf}> {labelName}</label>
+        <label className="frm-label" htmlFor="image1" > {labelName}</label>
         {value ? <i className="fas fa-check-circle"></i> : ''}
       </div>
-      <input className="file-input" type="file" name={nameOf} placeholder="choose image" onChange={handleUpload} required />
+      <input className="file-input" type="file" name="image1" placeholder="choose image" onChange={handleUpload} required />
     </>   
   )
 }
