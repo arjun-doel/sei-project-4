@@ -40,7 +40,7 @@ body {
     .main-header{
       padding: 0;
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%,-50%);
       color: $the-red;
@@ -464,6 +464,6 @@ body {
 //* Toasts
 .Toastify__toast--success{ 
   background: $the-grey !important;
-  color: white;
+  color: $the-red;
   font-weight: bold;
 }

@@ -1,0 +1,98 @@
+[
+  {
+    "model": "jwt_auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$NMdn84oURCAeXPM7rN0OMu$FY5lHW3uOTjc247emzkh5D8xaWPLaFmHNUCh6RJyB9s=",
+      "last_login": "2021-07-22T17:18:01.612Z",
+      "is_superuser": true,
+      "username": "admin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-07-22T17:17:37.737Z",
+      "email": "admin@email.com",
+      "first_name": "",
+      "last_name": "",
+      "profile_image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "arjundoel",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-22T17:24:29Z",
+      "email": "arjundoel@gmail.com",
+      "first_name": "Arjun",
+      "last_name": "Doel",
+      "profile_image": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1626974708/useLocal-app-data/213C7DD9-8899-4C09-BC82-C73606163ED2_1_105_c_u71c2b.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "meghanmcgrath",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-22T17:36:58Z",
+      "email": "meg@email.com",
+      "first_name": "Meghan",
+      "last_name": "McGrath",
+      "profile_image": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1626975471/useLocal-app-data/B5C4C2D5-BDB7-4FCC-9DBA-ED907CF54439_1_105_c_cklzfk.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "johndoe",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-22T17:36:58Z",
+      "email": "john@gmail.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "profile_image": "https:///res-console.cloudinary.com/dlj1sbbtb/thumbnails/transform/v1/image/upload/v1627596631/https:///res-console.cloudinary.com/dlj1sbbtb/thumbnails/transform/v1/image/upload//v1627596631/dXNlTG9jYWwtYXBwLWRhdGEvcHJvZmlsZV9pbWFnZXMvcGV4ZWxzLWNobG9lLTEwNDM0NzFfYmkxdzFu/drilldown",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jessicasmith",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-22T17:36:58Z",
+      "email": "jessica@gmail.com",
+      "first_name": "Jessica",
+      "last_name": "Smith",
+      "profile_image": "https:///res-console.cloudinary.com/dlj1sbbtb/thumbnails/transform/v1/image/upload/v1627596724/https:///res-console.cloudinary.com/dlj1sbbtb/thumbnails/transform/v1/image/upload//v1627596724/dXNlTG9jYWwtYXBwLWRhdGEvcHJvZmlsZV9pbWFnZXMvcGV4ZWxzLWFuZHJlYS1waWFjcXVhZGlvLTk0MzA4NF95eG4yZmY=/drilldown",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+  ]
+  
