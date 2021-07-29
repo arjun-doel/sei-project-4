@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import NavigationHome from '../home/NavigationHome'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
+import Fade from 'react-reveal'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
@@ -50,21 +51,27 @@ const Login = () => {
         rtl={false}
         draggable
       />
-      <div className="register-wrap">
+      <div className="login-wrap">
         <form onSubmit={handleSubmit} className="register-form">
 
-          <div className="form-group-register">
-            <label className="frm-label" htmlFor="email">email</label>
-            <input className="main-input" type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
-          </div>
+          <Fade top>
+            <div className="form-group-register">
+              <label className="frm-label" htmlFor="email">email</label>
+              <input className="main-input" type="email" name="email" placeholder="enter email" value={loginData.email} onChange={handleChange} required />
+            </div>
+          </Fade>
 
-          <div className="form-group-register">
-            <label className="frm-label" htmlFor="password">password</label>
-            <input className="main-input" type="password" name="password" placeholder="enter password" value={loginData.password} onChange={handleChange} required />
-          </div>
+          <Fade bottom>
+            <div className="form-group-register">
+              <label className="frm-label" htmlFor="password">password</label>
+              <input className="main-input" type="password" name="password" placeholder="enter password" value={loginData.password} onChange={handleChange} required />
+            </div>
+          </Fade>
 
-          <button>submit</button>
-          
+          <Fade top>
+            <button>submit</button>
+          </Fade>
+
         </form>
       </div>
     </>

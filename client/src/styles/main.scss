@@ -124,41 +124,53 @@ body {
 }
 
 //* login page
-.login-wrapper{
-  background-image: url('https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627592946/useLocal-app-data/Front-End/Homepage/city-4298285_1920_xzt66m.jpg');
-  .login-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: white;
-    label{
-      font-size: 0.8;
-      color: rgb(94, 94, 94);
-      border-bottom: 1px solid black;
+.login-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627594800/useLocal-app-data/Front-End/Homepage/A873667F-B9B8-452C-8292-348D7042C101_1_105_c_n3snkf.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  .register-form{
+    background-color: white;
+    padding: 50px;
+    border-radius: 30px;
+    width: 50%;
+    .row-register{
+      display: flex;
+      justify-content: space-between;
+      .form-group-register{
+        width: 40%;
+      }
     }
-    input{
-      margin: 10px;
-      width: 30%;
+    .form-group-register{
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0 20px 0;
+      .main-input{
+        background: none;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+      }
+      .upload-wrapper{
+        margin-top: 10px;
+        i {
+          margin-left: 10px;
+          color: green;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    button{
+      width: 100%;
       border: none;
-      border-bottom: 2px solid black;
-      outline: none;
-      background: none;
-    }
-    .submit-login{
+      padding: 10px;
       border-radius: 10px;
-      border: none;
-      color: white;
-      font-weight: bold;
       background: $the-red;
       color: white;
-      transition: 0.5s ease-in-out;
-      text-align: center;
-      padding: 16px;
-    }
-    .submit-login:hover{
-      transform: scale(1.05);
+      font-weight: bold;
     }
   }
 }
