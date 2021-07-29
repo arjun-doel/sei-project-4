@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 $posh-writing: 'Pacifico', cursive;
-$the-red: #D81159;
+$the-red: #FF585D;
+$the-grey: #484848;
 
 * {
   box-sizing: border-box;
@@ -16,10 +17,15 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  backdrop-filter: blur(10px);
-  font-size: 1.4rem;
+  // background: $the-grey;
+  // backdrop-filter: blur(50px);
+  font-size: 1.8rem;
+  #main-logo{
+    font-size: 2rem;
+  }
   a{
     transition: 0.4s ease-in-out;
+    color: white !important;
   }
   a:hover{
     transform: scale(1.05);
@@ -36,9 +42,9 @@ body {
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
-      color: white;
+      color: $the-red;
       font-weight: bold;
-      font-size: 4em;
+      font-size: 6em;
       font-family: $posh-writing;
     }
   .slogan{
@@ -99,6 +105,9 @@ body {
       border: none;
       padding: 10px;
       border-radius: 10px;
+      background: $the-red;
+      color: white;
+      font-weight: bold;
     }
   }
 }
@@ -126,7 +135,9 @@ body {
   .submit-login{
     border-radius: 10px;
     border: none;
-    background: coral;
+    color: white;
+    font-weight: bold;
+    background: $the-red;
     color: white;
     transition: 0.5s ease-in-out;
     text-align: center;
@@ -172,10 +183,11 @@ body {
   i {
     color: $the-red;
     font-size: 2rem;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
   i:hover {
     transform: scale(1.5);
+    // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
 }
 
@@ -215,6 +227,9 @@ body {
     padding: 10px;
     border-radius: 10px;
     transition: 0.7s ease-in-out;
+    background: $the-red;
+    color: white;
+    font-weight: bold;
   }
   button:hover{
     transform: scale(1.05);
@@ -338,6 +353,9 @@ body {
       border: none;
       padding: 10px;
       transition: 0.5s ease-in-out;
+      background: $the-red;
+      color: white;
+      font-weight: bold;
     }
     .submit-comment:hover{
       transform: scale(1.01);
@@ -401,6 +419,9 @@ body {
         font-size: 1.6rem;
       }
     }
+    .rating-header{
+      color: $the-red;
+    }   
     .fav-short-text{
       color: gray;
     }
@@ -412,5 +433,8 @@ body {
 }
 
 //* Toasts
-// .Toastify__toast--success{ 
-// }
+.Toastify__toast--success{ 
+  background: $the-grey !important;
+  color: white;
+  font-weight: bold;
+}

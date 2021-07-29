@@ -71,6 +71,7 @@ const MapIndex = () => {
           image2={ite.image2}
           image3={ite.image3}
           description={ite.description}
+          type={ite.location_type}
           address={ite.address}
           city={ite.city}
           country={ite.country}
@@ -94,7 +95,7 @@ const MapIndex = () => {
       >
         {locations.map(ite => {
           return <Marker key={ite.id} longitude={parseFloat(ite.longitude)} latitude={parseFloat(ite.latitude)}>
-            <span className="mark-icon"><i id={ite.id} onClick={handleModalChange} className="fas fa-thumbtack"></i></span>
+            <span className="mark-icon"><i id={ite.id} onClick={handleModalChange} className="fas fa-map-pin"></i></span>
           </Marker>
         })}
       </ReactMapGL>

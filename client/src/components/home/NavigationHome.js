@@ -11,7 +11,7 @@ const NavigationHome = () => {
         <Container>
 
           <LinkContainer to="/">
-            <Navbar.Brand><i className="fas fa-map-marked"></i></Navbar.Brand>
+            <Navbar.Brand id="main-logo"><i className="fas fa-map-marked"></i></Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

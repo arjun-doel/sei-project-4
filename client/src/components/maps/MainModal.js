@@ -9,7 +9,7 @@ import useLocalStorage from '../hooks/useLocalStorage'
 import { ToastContainer, toast } from 'react-toastify'
 import Fade from 'react-reveal'
 
-const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, price, lgShow, setLgShow }) => {
+const MainModal = ({ id, name, image1, image2, image3, description, owner, comments, address, city, country, postCode, price, type, lgShow, setLgShow }) => {
   const [open, setOpen] = useState(false)
   const [saved, setSaved] = useState(false)
 
@@ -103,6 +103,8 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
     // }
   }
 
+  console.log('the main comments', currentComments)
+
   return (
     <>
       <ToastContainer
@@ -142,7 +144,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
         </Modal.Header>
         <Modal.Body>
           <div className="short-info">
-            <span className="loc-type">food - dinner</span>
+            <span className="loc-type">{type}</span>
             {/* <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span> */}
             <p className="price-header">{priceTags()}</p>
           </div>

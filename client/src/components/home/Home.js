@@ -6,7 +6,7 @@ import { Parallax } from 'react-parallax'
 
 const Home = () => {
 
-  const heroMain = 'https://res.cloudinary.com/dlj1sbbtb/image/upload/q_57/v1627047358/useLocal-app-data/Front-End/Homepage/cafe-3537801_dbcrli.jpg'
+  const heroMain = 'https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627590070/useLocal-app-data/Front-End/Homepage/outdoor-dining-1846137_1920_nkg8py.jpg'
 
   return (
     <>
