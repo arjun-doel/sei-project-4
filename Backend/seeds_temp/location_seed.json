@@ -221,7 +221,7 @@
   },
   {
     "model": "locations.location",
-    "pk": 8,
+    "pk": 9,
     "fields": {
       "name": "Gabeto",
       "image1": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627548678/useLocal-app-data/location_images/widen-1680-noupsize_jwq4yn.jpg",
@@ -243,22 +243,22 @@
   },
   {
     "model": "locations.location",
-    "pk": 8,
+    "pk": 10,
     "fields": {
-      "name": "Gabeto",
-      "image1": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627548678/useLocal-app-data/location_images/widen-1680-noupsize_jwq4yn.jpg",
-      "image2": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627548697/useLocal-app-data/location_images/widen-1680-noupsize_1_nepzaf.jpg",
-      "image3": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627548718/useLocal-app-data/location_images/widen-1680-noupsize_2_ekjgeg.jpg",
-      "description": "Latin influences add flair to the Modern British menu at this offbeat brasserie and late-night bar.",
-      "price_rage": 3,
+      "name": "Nightjar",
+      "image1": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627549198/useLocal-app-data/location_images/nightjar2015credstephenperry3barweb_wyy7vp.jpg",
+      "image2": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627549367/useLocal-app-data/location_images/nightjar2015credstephenperry1drinkweb_hywvib.jpg",
+      "image3": "https://res.cloudinary.com/dlj1sbbtb/image/upload/v1627552528/useLocal-app-data/location_images/nightjar_nightjar-in-shoreditch-image-courtesy-of-rebecca-little_624a3da2330b7d028f130adbdca52c19_nput6z.jpg",
+      "description": "Speakeasy-style subterranean bar with live jazz and blues, for cocktails and rare spirits.",
+      "price_rage": 4,
       "location_type": "bars",
-      "address": "The Stables Market Camden Market, Chalk Farm Rd",
+      "address": "129 City Rd",
       "city": "London",
       "state": "",
-      "postal_code": "NW1 8AH",
+      "postal_code": "EC1V 1JB",
       "country": "United Kingdom", 
-      "latitude": "51.5129230817",
-      "longitude": "-0.1385710576",
+      "latitude": "51.526490",
+      "longitude": "-0.087700",
       "post_at": "2021-07-22T17:34:53.658Z",
       "owner": 2
     }
