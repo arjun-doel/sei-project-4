@@ -283,18 +283,16 @@ body {
   .main-ratings{
     margin-top: 10px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     .rating-header{
       font-size: 0.9rem;
       color: $the-red;
     }   
     .price-header{
       font-size: 0.9rem;
-      margin-top: 5px;
+      margin-top: -3px;
+      margin-left: 10px;
       color: grey;
-      i {
-        padding: 0 1px 0 1px;
-      }
       margin-bottom: -5px;
     } 
   }

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router'
 import Modal from 'react-bootstrap/Modal'
 import { ImageUploadField } from '../hooks/ImageUploadField'
 import { getTokenFromLocalStorage } from '../hooks/auth'
 import { ToastContainer, toast } from 'react-toastify'
 
 const AddLocationsModal = ({ show, handleClose }) => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     name: '',
     image1: '',
@@ -43,10 +45,13 @@ const AddLocationsModal = ({ show, handleClose }) => {
         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
       })
       toast.success('your location has been succesfully added!')
+      history.push('/maps')
     } catch (err) {
       console.log(err)
     }
   }
+
+  console.log(formData)
 
   return (
     <>

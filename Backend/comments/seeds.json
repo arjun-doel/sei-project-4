@@ -1,12 +1,113 @@
 [
-{
-  "model": "comments.comment",
-  "pk": 1,
-  "fields": {
-    "text": "The dumping were sooo good!!!!",
-    "created_at": "2021-07-22T17:38:18.369Z",
-    "location": 3,
-    "owner": 3
+  {
+    "model": "comments.comment",
+    "pk": 1,
+    "fields": {
+      "text": "The dumping were sooo good!!!!",
+      "rating": 4,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 3,
+      "owner": 3
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 2,
+    "fields": {
+      "text": "Dan Dan noodles were 10/10!",
+      "rating": 5,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 1,
+      "owner": 4
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 3,
+    "fields": {
+      "text": "Bao buns were delish & the fillings..",
+      "rating": 4,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 2,
+      "owner": 5
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 4,
+    "fields": {
+      "text": "Food was cold and service was slow",
+      "rating": 3,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 2,
+      "owner": 6
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 5,
+    "fields": {
+      "text": "rustic and authentic thai food, coudln't ask for more!",
+      "rating": 5,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 3,
+      "owner": 4
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 6,
+    "fields": {
+      "text": "small sellection of food but so good.",
+      "rating": 4,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 3,
+      "owner": 4
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 7,
+    "fields": {
+      "text": "slow service, food was average...",
+      "rating": 3,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 4,
+      "owner": 5
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 8,
+    "fields": {
+      "text": "awesome Carbonara!",
+      "rating": 4,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 4,
+      "owner": 2
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 9,
+    "fields": {
+      "text": "great fried chicken",
+      "rating": 5,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 5,
+      "owner": 6
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 10,
+    "fields": {
+      "text": "great indian fusion",
+      "rating": 4,
+      "created_at": "2021-07-22T17:38:18.369Z",
+      "location": 6,
+      "owner": 4
+    }
   }
-}
-]
+  ]
+  

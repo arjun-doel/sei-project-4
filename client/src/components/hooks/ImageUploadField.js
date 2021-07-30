@@ -24,7 +24,7 @@ export const ImageUploadField = ({ handleImageUrl, value, labelName, nameOf }) =
         <label className="frm-label" htmlFor={nameOf}> {labelName}</label>
         {value ? <i className="fas fa-check-circle"></i> : ''}
       </div>
-      <input className="file-input" type="file" name={nameOf} placeholder="choose image" onChange={handleUpload} required />
+      <input className="file-input" type="file" name={nameOf} placeholder="choose image" onChange={handleUpload} />
     </>   
   )
 }

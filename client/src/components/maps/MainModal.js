@@ -138,7 +138,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
                 className="rating-header"
                 initialRating={averageRating()}
               />
-              
+              <p className="price-header">{priceTags()}</p>
             </div>
           </Modal.Title>
         </Modal.Header>
@@ -146,7 +146,6 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
           <div className="short-info">
             <span className="loc-type">{type}</span>
             {/* <span className="opening-times"><strong><i className="far fa-clock"></i></strong> 9am - 6pm</span> */}
-            <p className="price-header">{priceTags()}</p>
           </div>
           <hr />
           <h5 className="modal-address" aria-controls="example-collapse-text" onClick={() => setOpen(!open)} aria-expanded={open}>
@@ -183,7 +182,7 @@ const MainModal = ({ id, name, image1, image2, image3, description, owner, comme
             {currentComments.map(ite =>
               <Fade collapse key={ite.created_at}>
                 <div className="comment">
-                  <img src={ite.owner.profile_image} alt="profile-photo" />
+                  {/* <img src={ite.owner.profile_image} alt="profile-photo" /> */}
                   <div className="comm-text">
                     <Rating
                       emptySymbol="far fa-star"
