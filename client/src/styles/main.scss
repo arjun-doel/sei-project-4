@@ -231,6 +231,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
+    input[type="file"] {
+      display: none;
+    }
     input{
       margin-top: -3px;
       border: none;
@@ -461,7 +464,7 @@ body {
 
 //* Toasts
 .Toastify__toast--success{ 
-  // background: $the-grey !important;
+  background: white !important;
   color: $the-red;
   font-weight: bold;
 }

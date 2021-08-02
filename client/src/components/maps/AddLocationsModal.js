@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import { ImageUploadField } from '../hooks/ImageUploadField'
 import { getTokenFromLocalStorage } from '../hooks/auth'
 import { ToastContainer, toast } from 'react-toastify'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 const AddLocationsModal = ({ show, handleClose }) => {
   const history = useHistory()
@@ -47,7 +48,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
       toast.success('your location has been succesfully added!')
       history.push('/maps')
     } catch (err) {
-      console.log(err)
+      console.log(err.response.data)
     }
   }
 
@@ -105,6 +106,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
             <div className="add-loc-frm-group">
               <label>select price category</label>
               <select name="price_rage" onChange={handleUserData} value={formData.person}>
+                <option value="0">choose option</option>
                 <option value="1">£</option>
                 <option value="2">££</option>
                 <option value="3">£££</option>
@@ -114,6 +116,7 @@ const AddLocationsModal = ({ show, handleClose }) => {
             <div className="add-loc-frm-group">
               <label>location type</label>
               <select name="location_type" onChange={handleUserData} value={formData.location_type}>
+                <option value="0">choose option</option>
                 <option value="food">food</option>
                 <option value="landmarks">landmarks</option>
                 <option value="bars">bars</option>
