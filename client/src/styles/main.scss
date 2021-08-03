@@ -231,9 +231,27 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    input[type="file"] {
-      display: none;
+
+    .upload-wrapper{
+      display: flex;
+      flex-direction: column;
+      i{
+        margin-bottom: 10px;
+        color: green;
+        font-size: 1.2rem;
+      }
+      label{
+        margin-top: 15px;
+      }
     }
+    .load-symbol {
+      justify-content: center;
+      align-items: center;
+      width: 4%;
+      margin-left: 5px;
+      margin-bottom: 5px;
+    }
+
     input{
       margin-top: -3px;
       border: none;
