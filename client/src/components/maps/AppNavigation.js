@@ -4,15 +4,25 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import AddLocationsModal from './AddLocationsModal'
+import FilterType from './FilterType'
 
 const AppNavigation = ({ showPosition }) => {
   //*Modal State
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
 
+  //* Filter Modal State
+  const [showFilter, setShowFilter] = useState(false)
+  const handleCloseFilter = () => setShowFilter(false)
+
   const handleChangeAddModal = () => {
     console.log('add location')
     setShow(true)
+  }
+
+  const handleChangeFilter = () => {
+    console.log('modal filter')
+    setShowFilter(true)
   }
   
   const logoutToken = () => {
@@ -27,12 +37,18 @@ const AppNavigation = ({ showPosition }) => {
         handleClose={handleClose}
       />
 
+      <FilterType 
+        show={showFilter}
+        onHide={handleCloseFilter}
+        handleClose={handleCloseFilter}
+      />
+
       <Navbar collapseOnSelect expand="lg" className="app-nav">
         <Container>
 
           <Nav.Link onClick={showPosition} className="right-icons"><i className="fas fa-location-arrow"></i></Nav.Link>
 
-          <Nav.Link className="right-icons"><i className="fas fa-filter"></i></Nav.Link>
+          <Nav.Link className="right-icons" onClick={handleChangeFilter} ><i className="fas fa-filter"></i></Nav.Link>
 
           <Nav.Link className="right-icons" onClick={handleChangeAddModal}><i className="fas fa-plus"></i></Nav.Link>
 
