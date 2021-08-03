@@ -1,27 +1,30 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
+import Fade from 'react-reveal'
 
-const FilterType = ({ show, handleClose }) => {
+const FilterType = ({ show, handleClose, handleFilteredChange }) => {
 
   return (
     <>
 
       <Modal show={show}
         onHide={handleClose}
+        className="filter-modal"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header>
+          <Modal.Title>filter</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, youre reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Fade collapse>
+          <Modal.Body>
+            <Form.Select aria-label="Default select example" onChange={handleFilteredChange}>
+              <option value="all">all</option>
+              <option value="food">food</option>
+              <option value="bars">bars</option>
+              <option value="landmarks">landmarks</option>
+            </Form.Select>
+          </Modal.Body>
+        </Fade>
       </Modal>
     </>
   )

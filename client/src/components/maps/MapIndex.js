@@ -11,6 +11,9 @@ const MapIndex = () => {
   const { latitude, longitude, error } = usePosition()
   const token = 'pk.eyJ1IjoiYXJqdW5kb2VsIiwiYSI6ImNrcWh2dmdqNzJoenQyb3F0dW0yZWxrbnYifQ.UK1B_huaJtR_5VRPt8F_sw'
 
+  //* Filter State
+  const [filteredData, setFilteredData] = useState([])
+
   //*Info Modal State
   const [lgShow, setLgShow] = useState(false)
   const [modalInfo, setModalInfo] = useState([])
@@ -58,7 +61,17 @@ const MapIndex = () => {
     setLgShow(true)
   }
 
-  console.log('modal info', modalInfo)
+  const handleFilteredChange = e => {
+    console.log('filtered change', e.target.value)
+    if (e.target.value === 'all'){
+      setFilteredData(locations)
+    } else {
+      const filterTheData = locations.filter(ite => ite.location_type === e.target.value)
+      setFilteredData(filterTheData)
+    }
+  }
+
+  console.log('locations', locations)
 
   return (
     <>
@@ -93,7 +106,7 @@ const MapIndex = () => {
         onViewportChange={viewport => setNewViewport(viewport)}
         mapboxApiAccessToken={token}
       >
-        {locations.map(ite => {
+        {(filteredData.length > 0 ? filteredData : locations).map(ite => {
           return <Marker key={ite.id} longitude={parseFloat(ite.longitude)} latitude={parseFloat(ite.latitude)}>
             <span className="mark-icon"><i id={ite.id} onClick={handleModalChange} className="fas fa-map-pin"></i></span>
           </Marker>
@@ -101,6 +114,7 @@ const MapIndex = () => {
       </ReactMapGL>
       <AppNavigation
         showPosition={showPosition}
+        handleFilteredChange={handleFilteredChange}
       />
     </>
   )

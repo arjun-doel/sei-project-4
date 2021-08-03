@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import AddLocationsModal from './AddLocationsModal'
 import FilterType from './FilterType'
 
-const AppNavigation = ({ showPosition }) => {
+const AppNavigation = ({ showPosition, handleFilteredChange }) => {
   //*Modal State
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
@@ -41,6 +41,7 @@ const AppNavigation = ({ showPosition }) => {
         show={showFilter}
         onHide={handleCloseFilter}
         handleClose={handleCloseFilter}
+        handleFilteredChange={handleFilteredChange}
       />
 
       <Navbar collapseOnSelect expand="lg" className="app-nav">
