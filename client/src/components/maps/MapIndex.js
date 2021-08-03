@@ -29,7 +29,7 @@ const MapIndex = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get('/api/maps')
+        const { data } = await axios.get('/api/maps/')
         setLocations(data)
       } catch (err) {
         console.log(err)
