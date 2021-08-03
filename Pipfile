@@ -11,6 +11,8 @@ pylint = "*"
 djangorestframework = "*"
 pyjwt = "*"
 django-on-heroku = "*"
+install = "*"
+geopy = "*"
 
 [dev-packages]
 
