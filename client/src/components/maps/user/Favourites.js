@@ -18,8 +18,8 @@ const Favourites = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get('/api/maps')
-        // console.log('data', typeof (data[0].id))
+        const { data } = await axios.get('/api/maps/')
+        console.log('data', data)
         const comparison = data.filter(ite => getItem().includes(parseFloat(ite.id)))
         setLocationsData(comparison)
       } catch (err) {

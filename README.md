@@ -155,6 +155,8 @@ Finally I used the `Django Rest_Framework` and setup all the urls requests.
 
 The frontend was all about making the app an easy to use & great user experince. I made use of alot of animations with `React-Reveal`, `React-Spring` to make the pages feel dynamic.
 
+Each time a user made a post request, an alert would appear using `React-Toastify`. Like the animations, I wanted to make the app interactive.
+
 ```
 try {
       await axios.post('/api/auth/register/', formData)
@@ -163,7 +165,7 @@ try {
       toast.success('Registration Success')
 ```
 
-Each time a user made a post request, an alert would appear using `React-Toastify`. Like the animations, I wanted to make the app interactive. A
+
 
 
 
