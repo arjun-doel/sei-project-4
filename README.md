@@ -149,7 +149,9 @@ location_to_before = request.data
         address_replace = address_compiled.replace(",", "")
 ```
 
-Finally I used the `Django Rest_Framework` and setup all the urls requests.
+Finally I used the `Django Rest_Framework` and setup all the urls requests.<br />
+&nbsp;
+
 
 ### Frontend
 
@@ -164,6 +166,50 @@ try {
       history.push('/login')
       toast.success('Registration Success')
 ```
+
+Another element which took time to implement, was the favourites feature. I made use of localstorage to store the id's of each location in JSON. When the user opens the favourites window, a get request is made to the api, which I then use an array method to compare the id's in local storage to the data fetched from the backend and save the objects that are related to the id's in local storage.
+
+```
+ useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get('/api/maps/')
+        console.log('data', data)
+        const comparison = data.filter(ite => getItem().includes(parseFloat(ite.id)))
+        setLocationsData(comparison)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [])
+```
+<br />
+
+## 🎉 wins & losses 😒
+
+My biggest win was also my biggest loss. I spent a while trying to work out the besy way to convert an address posted by a user to longitude and latitude and save in the backend. I started with planning and testing certain aspects of the backend post request func, to see where was best to add this feature. Through my testing I was able to grab the data before it gets sent to the database - this was where I was going to add in the feature.
+
+I then researched the best and most cost effective way to collect the longitude and latitude. I came across many various geocoders. However this process took a while, reading various documentation and trying some of geocoders. But no luck, until I came across geopy, which managed to work well and the documentation was easy enough to follow. I was losing hope whilst working on this feature, it took hours to get it to work. I perserved though it, taking breaks and going through each step one at a time, printing to the console as I go and making requests via Insomnia. 
+
+<img style="float: left;" src="https://res.cloudinary.com/dlj1sbbtb/image/upload/v1628848596/Screenshot_2021-08-13_at_10.56.19_b8fajz.png"><br />
+&nbsp;
+
+
+It felt so rewarding when I got it to work and I did not regret the many hours I spent adjusting the code.
+<br />
+&nbsp;
+
+## key learnings
+- I've used many new technologies in this project such as **React-Reveal** & **Geopy**. So the ability to read various documentation is a big key takeaway.
+
+- Project planning and psuedo-coding are a must to get a running application completed during any given time frame.
+
+## future improvements
+- There are still a few bugs on the front-end, such as posting locations and loggin in. I need to add more error handling for the user and implement a better UI for posting locations.
+
+- I'd also like to add in the ability for a user to pin a location directly on the map.
+
 
 
 
